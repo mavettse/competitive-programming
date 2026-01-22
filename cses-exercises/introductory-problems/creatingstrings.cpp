@@ -2,36 +2,19 @@
 
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
 long long fatorial(int n){
     
     long long fat = 1;
-
+ 
     for(int i = n; i > 1; --i){
         fat *= i;
     }
-
+ 
     return fat;
-}
-
-void imprimirStrings(int n, string& atual, int alfabeto[]){
-    
-    if((int)atual.size() == n){
-        cout << atual << "\n";
-        return;
-    }
-
-    for(int i = 0; i < 26; ++i){
-        if(alfabeto[i] > 0){
-            atual.push_back(i + 'a');
-            alfabeto[i]--;
-            imprimirStrings(n, atual, alfabeto);
-            atual.pop_back();
-            alfabeto[i]++;
-        }
-    }
 }
 
 int main(){
@@ -49,20 +32,29 @@ int main(){
     }
 
     int denominador = 1;
-
+ 
     for(int qtdLetras : alfabeto){
         if(qtdLetras > 1){
             denominador *= fatorial(qtdLetras);
         }
     }
-
+ 
     int n = s.size();
     long long linhas = fatorial(n)/denominador;
     
     cout << linhas << "\n";
 
-    string palavra;
-    imprimirStrings(n, palavra, alfabeto);
+    for(int i = 0, j = 0; i < 26 && j < n; ++i){
+        while(alfabeto[i] > 0){
+            s[j] = i + 'a';
+            alfabeto[i]--;
+            j++;
+        }
+    }
+
+    do{
+        cout << s << "\n";
+    } while(next_permutation(s.begin(), s.end()));
 
     return 0;
 }
