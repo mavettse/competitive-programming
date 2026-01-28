@@ -14,7 +14,7 @@ int main(){
     int numClientes;
     cin >> numClientes;
 
-    pair<int, int> eventos;
+    pair<int, int> evento;
     vector<pair<int,int>> horarios;
     horarios.reserve(numClientes << 1);
 
@@ -22,10 +22,10 @@ int main(){
         int aux;
         cin >> aux;
 
-        eventos.first = aux;
-        eventos.second = (i & 1) ? -1 : 1; // 1 se for chegada, -1 se for saída
+        evento.first = aux;
+        evento.second = (i & 1) ? -1 : 1; // 1 se for chegada, -1 se for saída
 
-        horarios.push_back(eventos);
+        horarios.push_back(evento);
     }
 
     sort(horarios.begin(), horarios.end());
