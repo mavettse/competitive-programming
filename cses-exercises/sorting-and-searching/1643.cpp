@@ -17,15 +17,10 @@ int main(){
     long long somaAtual = maxSoma;
 
     for(int i = 0; i < n; ++i){
-        int numAtual;
+        long long numAtual;
         cin >> numAtual;
-        
-        if(somaAtual <= 0 && numAtual > somaAtual){
-            somaAtual = numAtual;
-        } else {
-            somaAtual += numAtual;
-        }
 
+        somaAtual = max(numAtual, somaAtual + numAtual);
         maxSoma = max(maxSoma, somaAtual);
     }
     
