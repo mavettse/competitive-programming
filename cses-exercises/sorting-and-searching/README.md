@@ -121,3 +121,9 @@ Resoluções dos exercícios introdutórios do CSES.
 	- (2,3): posicao[3] = 5; posicao[2] = 3; COmo 5 > 3, nada é feito.
 	- Logo, a quantidade de rounds após a troca é 2.
 - Ou seja, o algoritmo, basicamente, subtrai os valores dos rounds inseridos antes da troca, realiza a troca e adiciona os valores dos rounds que ocorreram após ela. 
+
+## 1141 - PLAYLIST
+- Para contar a quantidade máxima de músicas que tocam sem se repetir, faz-se uso de unordered map para armazenar as músicas da playlist e de dois ponteiros indicando o início e o fim da sequência de faixas atual. 
+- Dentro do loop para ler as músicas da playlist, é feito uma verificação: 
+	- Se a faixa atual já existir dentro do map e sua posição estiver na frente do ponteiro de início, esse ponteiro tem seu valor atualizado; o início da subsequência passa a ser a posição seguinte à faixa existente.
+- Em todos os casos, a faixa atual é inserida (ou tem seu valor atualizado) no map com a key sendo a faixa e o valor sendo o índice atual, o ponteiro apontando para o final da subsequência é atualizado para a índice atual e a variável que armazena o valor máximo recebe o valor máximo entre seu valor anterior ou a sequência atual.
