@@ -99,4 +99,25 @@ Resoluções dos exercícios introdutórios do CSES.
 	- somaAtual na 3ª iteração = 5; A próxima moeda é 7; somaAtual + 1 = 5 + 1 = 6; Como 6 < 7, então 6 é a soma impossível. 
 
 ## 2216 - COLLECTING NUMBERS
-- 
+- Para saber a quantidade de rounds necessários para ler uma sequência de números de 1 a n, basta seguir o seguinte raciocínio: 
+	- Utilizando a sequência 4 2 1 5 3 como exemplo; Na leitura de cada número, pode-se fazer a seguinte associação: Lendo o número 4, o primeiro número da sequência, se seu antecessor 3 ainda não foi lido, então mais uma rodada terá que acontecer para essa leitura, então round = 1; Lendo o número 2, percebe-se que seu antecessor 1 também não foi lido, logo, round = 2; Lendo o número 1, que é onde a contagem se inicia, pode-se também incrementar as rodadas, round = 3; Lendo o número 5, seu antecessor já foi lido, então o round permanece igual a 3; A mesma coisa acontece com o número 3, então, round = 3;
+- Tendo tal leitura em mente, tem-se a seguinte ideia: Se, após ler o número X, notar que seu antecessor X-1 ainda não foi lido, então mais uma rodada precisará ser feita para tal leitura. 
+- Diante disso, cria-se um vetor de inteiro dos números lidos com capacidade n+1.
+- Um loop itera pela sequência dos números e verifica se o número anterior a ele já foi lido, se não, incrementa rounds; Após cada iteração, o número atual é marcado como lido no vetor. 
+
+## 2217 - COLLECTING NUMBERS II
+- A resolução desse exercício tem como base o algoritmo do exercício anterior para calcular a quantidade de rounds da sequência de números inserida inicialmente. A diferença é que, ao invés de ter somente um vetor indicando se o número foi lido ou não, têm-se dois vetores: um que armazena as posições dos números e outro que armazena os valores. 
+- O ponto principal nesse é realizar o cálculo dos rounds após a troca da posição dos números da sequência. 
+- Para cada vez que posicao[valor] < posicao[valor-1], a quantidade de rounds aumenta em 1. O foco aqui é pegar retirar a quantidade de rounds que foram adicionadas por razão das posições dos valores em a e em b.
+- Se a e b forem, por exemplo, 2 e 3, e a sequência inicial for 4 2 1 5 3, com rounds = 3, os valores que serão movidos de lugar são 2 e 1. 
+- Os números que são afetas por tais valores são aqueles em suas vizinhanças, então deve-se chegar todos os pares que possuem uma unidade de diferença entre eles: Para o número 2: (1,2) e (2,3); Para o número 1: (0,1) e (1,2); Como possui 2 pares diferentes e 1 deles está fora do intervalo dos números, sobra: (1,2) e (2,3).
+- Tendo os pares de valores, a sequência antes da troca, e a quantidade de rounds, basta subtrair do número de rounds toda vez que posicao[valor] < posicao[valor-1];
+	- Para a sequência 4 2 1 5 3:
+	- (1,2): posicao[2] = 2; posicao[1] = 3; Como 2 < 3, rounds = 3 - 1 = 2;
+	- (2,3): posicao[3] = 5; posicao[2] = 2; Como 5 > 2, nada é feito. 
+- Agora, basta fazer a troca e incrementar em 1 a quantidade de rounds toda vez que posicao[valor] < posicao[valor-1]; 
+	- Para a sequência trocada 4 1 2 5 3:
+	- (1,2): posicao[2] = 3; posicao[1] = 2; Como 3 > 2, nada é feito.
+	- (2,3): posicao[3] = 5; posicao[2] = 3; COmo 5 > 3, nada é feito.
+	- Logo, a quantidade de rounds após a troca é 2.
+- Ou seja, o algoritmo, basicamente, subtrai os valores dos rounds inseridos antes da troca, realiza a troca e adiciona os valores dos rounds que ocorreram após ela. 
