@@ -127,3 +127,11 @@ Resoluções dos exercícios introdutórios do CSES.
 - Dentro do loop para ler as músicas da playlist, é feito uma verificação: 
 	- Se a faixa atual já existir dentro do map e sua posição estiver na frente do ponteiro de início, esse ponteiro tem seu valor atualizado; o início da subsequência passa a ser a posição seguinte à faixa existente.
 - Em todos os casos, a faixa atual é inserida (ou tem seu valor atualizado) no map com a key sendo a faixa e o valor sendo o índice atual, o ponteiro apontando para o final da subsequência é atualizado para a índice atual e a variável que armazena o valor máximo recebe o valor máximo entre seu valor anterior ou a sequência atual.
+
+## 1073 - TOWERS
+- O primeiro passo para descobrir a quantidade de torres necessárias para empilhar n cubos, sendo o mais acima de um tamanho menor do que está mais abaixo, é criando um vetor de inteiros. O vetor tem n posições reservadas e cada posição dele representa uma torre. 
+- Dentro do loop para ler os tamanhos dos cubos, utiliza-se a função upper bound do STL; essa função retorna um iterador que aponta para o primeiro elemento maior do que um valor passado por parâmetro; o valor, nesse caso, é o tamanho do cubo. 
+- Então, um bloco condicional é executado:
+	- Se o iterador mencionado apontar para o final do vetor, uma nova torre será criada com o cubo atual sendo a base.
+	- Caso negativo, o valor apontado pelo iterador terá seu valor atualizado para o cubo atual.
+- Ou seja, o algoritmo utiliza um vetor, em que cada posição representa uma torre, para armazenar somente o valor do último cubo posicionado, pois os valores anteriores não importam mais. Esse vetor então é utilizado como base para criar uma nova torre ou inserir um cubo em uma já existente.
