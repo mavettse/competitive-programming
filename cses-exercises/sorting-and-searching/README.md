@@ -135,3 +135,11 @@ Resoluções dos exercícios introdutórios do CSES.
 	- Se o iterador mencionado apontar para o final do vetor, uma nova torre será criada com o cubo atual sendo a base.
 	- Caso negativo, o valor apontado pelo iterador terá seu valor atualizado para o cubo atual.
 - Ou seja, o algoritmo utiliza um vetor, em que cada posição representa uma torre, para armazenar somente o valor do último cubo posicionado, pois os valores anteriores não importam mais. Esse vetor então é utilizado como base para criar uma nova torre ou inserir um cubo em uma já existente.
+
+## 1163 - TRAFFIC LIGHTS
+- Para tal solução, utiliza-se duas estruturas de dados: um set de inteiros chamado posSemaforos para armazenar as posições dos semáforos (começando inserindo os semáforos nas posições 0 e p1) e um multiset de inteiros chamado comprimentos para, obviamente, armazenar os comprimentos entre os intervalos de semáforos, o primeiro comprimento inserido é o do p1 atual. 
+- Inicia-se, então, um loop para fazer a leitura dos semáforos e a lógica dos comprimentos dos intervalos.
+- O primeiro passo dentro do loop é descobrir quais são os semáforos vizinhos do semáforo atual. Isso é feito utilizando a função upper_bound, que retorna o 1º valor maior que um valor passado por parâmetro (o valor passado é a posição do semáforo atual), então tem-se a posição do semáforo à esquerda e do semáforo à direita do semáforo atual. 
+- Como um semáforo será inserido entre esses dois, o comprimento desse intervalo deve ser removido do multiset. Tal operação é feita utilizando o comando find para buscar um iterador e, em seguida, removendo-o do multiset de comprimentos. (o iterador é utilizado ao invés do valor para que todos os valores iguais não sejam removidos de dentro do set). 
+- Após isso, insere-se a posição do semáforo atual no set das posições e os comprimentos da esquerda (pi - esq) e da direita (dir - pi) no multiset dos comprimentos. 
+- Na última linha do loop, é feita a impressão do maior valor do multiset de comprimentos.
