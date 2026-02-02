@@ -16,6 +16,11 @@ Resoluções dos exercícios introdutórios do CSES.
 | 1643 | Maximum Subarray Sum | [Código](./1643.cpp) |
 | 1074 | Stick Length | [Código](./1074.cpp) |
 | 2183 | Missing Coin Sum | [Código](./2183.cpp) |
+| 2216 | Collecting Numbers | [Código](./2216.cpp) |
+| 2217 | Collecting Numbers II | [Código](./2217.cpp) |
+| 1141 | Playlist | [Código](./1141.cpp) |
+| 1073 | Towers | [Código](./1073.cpp) |
+| 1163 | Traffic Lights | [Código](./1163.cpp) |
 
 ---
 
