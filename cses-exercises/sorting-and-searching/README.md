@@ -21,7 +21,21 @@ Resoluções dos exercícios introdutórios do CSES.
 | 1141 | Playlist | [Código](./1141.cpp) |
 | 1073 | Towers | [Código](./1073.cpp) |
 | 1163 | Traffic Lights | [Código](./1163.cpp) |
-
+| 3420 | Distinct Values Subarrays | [Código](./3420.cpp) |
+| 2222 | Distinct Values Subsequences | [Código](./2222.cpp) |
+| 3333 | Josephus Problem II | [Código](./3333.cpp) |
+| 4444 | Nested Ranges Check | [Código](./4444.cpp) |
+| 5555 | Nested Ranges Count | [Código](./5555.cpp) |
+| 6666 | Room Allocation | [Código](./6666.cpp) |
+| 7777 | Factory Machines | [Código](./7777.cpp) |
+| 8888 | Tasks and Deadlines | [Código](./8888.cpp) |
+| 9999 | Reading Books | [Código](./9999.cpp) |
+| 0000 | Sum of Three Values | [Código](./0000.cpp) |
+| 10x0 | Sum of Four Values | [Código](./10x0.cpp) |
+| 11x0 | Collecting Numbers II | [Código](./11x0.cpp) |
+| 12x0 | Nearest Smaller Values | [Código](./12x0.cpp) |
+| 13x0 | Subarray Sums I | [Código](./13x0.cpp) |
+| 14x0 | Subarray Sums II | [Código](./14x0.cpp) |
 ---
 
 ## 1621 - DISTINCT NUMBERS
@@ -148,3 +162,10 @@ Resoluções dos exercícios introdutórios do CSES.
 - Como um semáforo será inserido entre esses dois, o comprimento desse intervalo deve ser removido do multiset. Tal operação é feita utilizando o comando find para buscar um iterador e, em seguida, removendo-o do multiset de comprimentos. (o iterador é utilizado ao invés do valor para que todos os valores iguais não sejam removidos de dentro do set). 
 - Após isso, insere-se a posição do semáforo atual no set das posições e os comprimentos da esquerda (pi - esq) e da direita (dir - pi) no multiset dos comprimentos. 
 - Na última linha do loop, é feita a impressão do maior valor do multiset de comprimentos.
+
+## 3420 - DISTINCT VALUES SUBARRAYS
+- A solução para esse exercício é similar à solução do exercício 1141 - Playlist. Utiliza-se um map e a técnica da janela deslizante.
+- Dois inteiros esq e dir são criados para apontar o início e o fim do intervalo das subarrays sem repetição, enquanto o map nums armazena os números.
+- Faz-se a leitura de cada número da array dentro de um for loop e a função find() é utilizada para verificar se o número lido já foi inserido no map.
+	- Se o número já foi lido e o seu índice estiver dentro da janela {esq,dir}, então o ponteiro esq, que aponta para o início do intervalo, recebe o valor do índice da frente incrementado em 1. 
+- Ao final do loop, o map armazena (ou atualiza) o valor do número atual com o índice atual, e a variável que contém os subarrays válidos é atualizada. 
