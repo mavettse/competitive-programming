@@ -14,19 +14,16 @@ int main(){
     int n;
     cin >> n;
 
-    map<int,long long> frequencia;
-    
+    map<int,long long> frequencias;
     for(int i = 0; i < n; ++i){
-        int numAtual;
-        cin >> numAtual;
-
-        frequencia[numAtual] = (frequencia.find(numAtual) == frequencia.end()) ? 1 : frequencia[numAtual] + 1;
+        int num;
+        cin >> num;
+        frequencias[num]++;
     }
 
     long long total = 1;
-
-    for(auto num : frequencia){
-        total *= (num.second + 1);
+    for(auto [num,freq] : frequencias){
+        total *= (freq + 1);
         total %= MOD;
     }
 
