@@ -23,6 +23,7 @@ Resoluções dos exercícios introdutórios do CSES.
 | 1163 | Traffic Lights | [Código](./1163.cpp) |
 | 3420 | Distinct Values Subarrays | [Código](./3420.cpp) |
 | 3421 | Distinct Values Subsequences | [Código](./3421.cpp) |
+| 2162 | Josephus Problem I | [Código](./2162.cpp) |
 | 3333 | Josephus Problem II | [Código](./3333.cpp) |
 | 4444 | Nested Ranges Check | [Código](./4444.cpp) |
 | 5555 | Nested Ranges Count | [Código](./5555.cpp) |
@@ -32,7 +33,6 @@ Resoluções dos exercícios introdutórios do CSES.
 | 9999 | Reading Books | [Código](./9999.cpp) |
 | 0000 | Sum of Three Values | [Código](./0000.cpp) |
 | 10x0 | Sum of Four Values | [Código](./10x0.cpp) |
-| 11x0 | Collecting Numbers II | [Código](./11x0.cpp) |
 | 12x0 | Nearest Smaller Values | [Código](./12x0.cpp) |
 | 13x0 | Subarray Sums I | [Código](./13x0.cpp) |
 | 14x0 | Subarray Sums II | [Código](./14x0.cpp) |
@@ -178,3 +178,21 @@ Resoluções dos exercícios introdutórios do CSES.
 - Para saber a quantidade total de combinações de subsequências, basta multiplicar: (f1 + 1) * (f2 + 1) * (f3 + 1) = 3 * 2 * 2 = 12. No entanto, ao multiplicar todas essas combinações, a combinação em que todos os elementos vazios são selecionados também entra [,,,]; como ela não faz parte das combinações, ela é retirada subtraindo 1: 12 - 1 = 11.
 - Ou seja, para descobrir a quantidade total de subsequências (que não passa de uma combinação), basta multiplicar a frequência de todos os números (contando com não-seleção desses números) e depois subtrair 1 de tal resultado, retirando o conjunto vazio. 
 - Para não estourar o tamanho da variável que vai armazenar o total, é importante utilizar a propriedade do módulo de (a*b) % MOD = (a%MOD * b%MOD) % MOD.
+
+## 2162 - JOSEPHUS PROBLEM I
+- Como o exercício segue um padrão cíclico de alternância na remoção das crianças, utiliza-se uma fila. 
+- Armazena-se, inicialmente, os valores de 1 a n dentro da fila, com 1 sendo o primeiro e n sendo o último. 
+- Depois, cria-se uma variável auxiliar remover inicializada com 0, que funcionará de forma a decidir se a criança atual será removida ou pulada. 
+- Então, cria-se um loop enquanto a fila não estiver vazia. 
+- Dentro dele, um bloco condicional faz a seguinte verificação: 
+	- Se remover estiver em 1, então o número da criança atual será impresso. 
+	- Se remover estiver em 0, então a criança atual será inserida no último lugar da fila. 
+	- Ao fim do bloco condicional, independente do resultado, a criança que está no primeiro lugar da fila será removida e o valor contido em remover será invertido. 
+- Dessa forma, se n = 3, por exemplo, o código fará o seguinte: 
+	- lista contem 1 2 3; remover = 0, então a lista passa a ser 2 3 1 e remover = 1;
+	- lista contem 2 3 1; remover = 1, então, a lista passa a ser 3 1 e remover = 0;
+	- lista contem 3 1; remover = 0, então a lista passa a ser 1 3 e remover = 1;
+	- lista contem 1 3; remover = 1, então a lista passa a ser 3 e remover = 0;
+ 	- lista contem 3; remover = 0, lista permanece a mesma, pois só existe um elemento dentro dela e remover = 1;
+	- lista zera e finaliza;
+	- Tal iteração imprime na ordem em que os elementos foram removidos, então seria: 2 1 3
