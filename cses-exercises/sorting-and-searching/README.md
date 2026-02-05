@@ -196,3 +196,12 @@ Resoluções dos exercícios introdutórios do CSES.
  	- lista contem 3; remover = 0, lista permanece a mesma, pois só existe um elemento dentro dela e remover = 1;
 	- lista zera e finaliza;
 	- Tal iteração imprime na ordem em que os elementos foram removidos, então seria: 2 1 3
+
+## 2163 - JOSEPHUS PROBLEM II
+- Para resolver esse exercício, foi-se feita a inserção das PBDS para o uso de um ordered_set. Ele funciona normalmente como um set, mas pode ser acessado através de índice e a remoção de elementos ocorre em complexidade em O(log n), muito mais rápido do que um vector (O(n)). 
+- Utilizando do exemplo n = 4 e k = 2: 
+	- o ordered_set nums contem 1 2 3 4; respectivamente nas posições 0, 1, 2 e 3; com um ponteiro apontando para o primeiro índice, pos = 0; a remoção é feita pulando k vezes a partir da posição atual, por precaução, deve-se utilizar o módulo da quantidade atual de elementos dentro de nums, a fim de manter o ponteiro dentro dos limites; ou seja: pos = (pos + k) % nums.size() = (0 + 2) % 4 = 2, então o elemento na posição 2 será removido;
+	- nums contem 1 2 4; pos = 2; a remoção será feita em pos = (pos + k) % nums.size() = (2 + 2) % 3 = 1;
+	- nums contem 1 4; pos = 1; a remoção será feita em pos = (1 + 2) % 2 = 1;
+	- nums contem 1; pos = 1; a remoção será feita em pos = (1 + 2) % 1 = 0;
+	- Como a impressão é feita em ordem de retirada, a saída será: 3 2 4 1;
