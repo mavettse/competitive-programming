@@ -22,7 +22,7 @@ Resoluções dos exercícios introdutórios do CSES.
 | 1073 | Towers | [Código](./1073.cpp) |
 | 1163 | Traffic Lights | [Código](./1163.cpp) |
 | 3420 | Distinct Values Subarrays | [Código](./3420.cpp) |
-| 2222 | Distinct Values Subsequences | [Código](./2222.cpp) |
+| 3421 | Distinct Values Subsequences | [Código](./3421.cpp) |
 | 3333 | Josephus Problem II | [Código](./3333.cpp) |
 | 4444 | Nested Ranges Check | [Código](./4444.cpp) |
 | 5555 | Nested Ranges Count | [Código](./5555.cpp) |
@@ -169,3 +169,12 @@ Resoluções dos exercícios introdutórios do CSES.
 - Faz-se a leitura de cada número da array dentro de um for loop e a função find() é utilizada para verificar se o número lido já foi inserido no map.
 	- Se o número já foi lido e o seu índice estiver dentro da janela {esq,dir}, então o ponteiro esq, que aponta para o início do intervalo, recebe o valor do índice da frente incrementado em 1. 
 - Ao final do loop, o map armazena (ou atualiza) o valor do número atual com o índice atual, e a variável que contém os subarrays válidos é atualizada. 
+
+## 3421 - DISTINCT VALUES SUBSEQUENCES
+- Para resolver tal problema, utiliza-se o exemplo dado: 
+1 2 1 3; Agrupando a sequência para a frequência de cada número, obtêm-se: 1 1 2 3;
+	- A quantidade de vezes que o número 1 aparece é 2, então f1 = 2; Mas a quantidade de maneiras que ele pode ser selecionado em uma subsequência é: [1] (o primeiro), [1] (o último) e [] (nenhum dos dois). Ou seja, f1 + 1 = 2 + 1 = 3 é a quantidade de combinações que podem ser feitas com ele.
+	- A quantidade de vezes que o número 2 aparece é 1, então f2 = 1; a quantidade de maneiras que ele pode ser selecionado em uma subsequência é: [2] e []. Ou seja, f2 + 1 = 1 + 1 = 2 é a quantidade de combinações que podem ser feitas com ele. O exemplo do 2 é análogo ao 3, já que ele também só aparece uma vez. 
+- Para saber a quantidade total de combinações de subsequências, basta multiplicar: (f1 + 1) * (f2 + 1) * (f3 + 1) = 3 * 2 * 2 = 12. No entanto, ao multiplicar todas essas combinações, a combinação em que todos os elementos vazios são selecionados também entra [,,,]; como ela não faz parte das combinações, ela é retirada subtraindo 1: 12 - 1 = 11.
+- Ou seja, para descobrir a quantidade total de subsequências (que não passa de uma combinação), basta multiplicar a frequência de todos os números (contando com não-seleção desses números) e depois subtrair 1 de tal resultado, retirando o conjunto vazio. 
+- Para não estourar o tamanho da variável que vai armazenar o total, é importante utilizar a propriedade do módulo de (a*b) % MOD = (a%MOD * b%MOD) % MOD.
