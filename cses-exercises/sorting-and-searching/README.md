@@ -24,18 +24,18 @@ Resoluções dos exercícios introdutórios do CSES.
 | 3420 | Distinct Values Subarrays | [Código](./3420.cpp) |
 | 3421 | Distinct Values Subsequences | [Código](./3421.cpp) |
 | 2162 | Josephus Problem I | [Código](./2162.cpp) |
-| 3333 | Josephus Problem II | [Código](./3333.cpp) |
-| 4444 | Nested Ranges Check | [Código](./4444.cpp) |
-| 5555 | Nested Ranges Count | [Código](./5555.cpp) |
-| 6666 | Room Allocation | [Código](./6666.cpp) |
-| 7777 | Factory Machines | [Código](./7777.cpp) |
-| 8888 | Tasks and Deadlines | [Código](./8888.cpp) |
-| 9999 | Reading Books | [Código](./9999.cpp) |
-| 0000 | Sum of Three Values | [Código](./0000.cpp) |
-| 10x0 | Sum of Four Values | [Código](./10x0.cpp) |
-| 12x0 | Nearest Smaller Values | [Código](./12x0.cpp) |
-| 13x0 | Subarray Sums I | [Código](./13x0.cpp) |
-| 14x0 | Subarray Sums II | [Código](./14x0.cpp) |
+| 2163 | Josephus Problem II | [Código](./2163.cpp) |
+| 2168 | Nested Ranges Check | [Código](./2168.cpp) |
+| 2169 | Nested Ranges Count | [Código](./2169.cpp) |
+| 1164 | Room Allocation | [Código](./1164.cpp) |
+| 1620 | Factory Machines | [Código](./1620.cpp) |
+| 1630 | Tasks and Deadlines | [Código](./1630.cpp) |
+| 1631 | Reading Books | [Código](./1631.cpp) |
+| 1641 | Sum of Three Values | [Código](./1641.cpp) |
+| 1642 | Sum of Four Values | [Código](./1642.cpp) |
+| 1645 | Nearest Smaller Values | [Código](./1645.cpp) |
+| 1660 | Subarray Sums I | [Código](./1660.cpp) |
+| 1660 | Subarray Sums II | [Código](./1661.cpp) |
 ---
 
 ## 1621 - DISTINCT NUMBERS
@@ -205,3 +205,43 @@ Resoluções dos exercícios introdutórios do CSES.
 	- nums contem 1 4; pos = 1; a remoção será feita em pos = (1 + 2) % 2 = 1;
 	- nums contem 1; pos = 1; a remoção será feita em pos = (1 + 2) % 1 = 0;
 	- Como a impressão é feita em ordem de retirada, a saída será: 3 2 4 1;
+
+## 2168 - NESTED RANGES CHECK
+- Para esta solução, fez-se o uso de uma struct Intervalo, que armazena o início, o fim, e o índice original de um dado intervalo; a criação de uma função que retorna um bool para personalizar a função sort da biblioteca algorithms, se o início de dois intervalos forem iguais, o primeiro na ordenação será aquele que possui o maior fim.
+- Cria-se, então, um vector da struct Intervalo chamada intervalos; todos os intervalos da entrada são armazenados dentro dele, juntamente de seus índices originais; O vector então é ordenado seguindo os critérios requisitados pela função: se o início de dois intervalos for igual, então o que tem o maior fim possui prioridade e vai primeiro; se não, ele é ordenado em ordem crescente normalmente. 
+- A primeira lógica feita é a de verificar se um intervalo contém outro;
+	- Um vetor de inteiros é criado para armazenar 1 se um intervalo contém, e 0 se não. As posições cujos intervalos serão salvos nesse vetor vai depender exclusivamente do índice original desses intervalos, e não do índice atual deles (já que eles foram trocados de lugar por causa da função sort). 
+	- É feita uma leitura de trás para frente do vetor; E, a cada iteração, o vetor contem verifica se o o fim do intervalo atual é maior ou igual ao menor intervalo já visto até o momento. A variável responsável por armazenar o menor fim visto é atualizada a cada iteração. 
+	- Como a leitura é feita de trás para frente, garantidamente o último vetor não contém ninguém, pois, além além dele possuir o maior início, mesmo que o início de todos os vetores seja igual, ele terá o menor fim, não podendo conter nenhum número.
+- A segunda lógica é a verificação se um intervalo está contido em outro:
+	- Ela funciona de forma análoga à primeira lógica, sua diferença é que, ao invés do vetor percorrer de trás para frente, ele percorre do início até o fim, armazenando em uma variável o maior fim encontrado até o momento e fazendo a verificação se o fim do intervalo atual é menor ou igual ao maior fim encontrado até o momento. Assim como o último elemento do vetor não poderia conter ninguém, o primeiro item desse vetor também jamais poderá estar contido em outro. Isso porque, além de seu início ser menor que todos os outros, mesmo que ele seja igual ao de todos, o seu fim ainda seria maior que de todos os outros, o que torna impossível que algum outro intervalo seja capaz de contê-lo.
+
+## 2169 - NESTED RANGES COUNT
+- 
+
+## 1164 - ROOM ALLOCATION
+- 
+
+## 1620 - FACTORY MACHINES
+- 
+
+## 1630 - TASKS AND DEADLINES
+- 
+
+## 1631 - READING BOOKS
+- 
+
+## 1641 - SUM OF THREE VALUES
+- 
+
+## 1642 - SUM OF FOUR VALUES
+- 
+
+## 1645 - NEAREST SMALLER VALUES
+- 
+
+## 1660 - SUBARRAY SUMS I
+- 
+
+## 1661 - SUBARRAY SUMS II
+- 
