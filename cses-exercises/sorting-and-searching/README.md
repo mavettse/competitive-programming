@@ -217,7 +217,14 @@ Resoluções dos exercícios introdutórios do CSES.
 	- Ela funciona de forma análoga à primeira lógica, sua diferença é que, ao invés do vetor percorrer de trás para frente, ele percorre do início até o fim, armazenando em uma variável o maior fim encontrado até o momento e fazendo a verificação se o fim do intervalo atual é menor ou igual ao maior fim encontrado até o momento. Assim como o último elemento do vetor não poderia conter ninguém, o primeiro item desse vetor também jamais poderá estar contido em outro. Isso porque, além de seu início ser menor que todos os outros, mesmo que ele seja igual ao de todos, o seu fim ainda seria maior que de todos os outros, o que torna impossível que algum outro intervalo seja capaz de contê-lo.
 
 ## 2169 - NESTED RANGES COUNT
-- 
+- A estratégia inicial do problema anterior (2168 - Nested Ranges Check) de organizar os intervalos dentro do vetor com suas posições originais continua a mesma. O que muda é a lógica utilizada depois da ordenação. 
+- Para a contagem de intervalos que contêm outros, cria-se um vetor contem, responsável por armazenar as contagens, e um ordered_multiset finsOrdenados, que é capaz de contar a quantidade de elementos menores que um valor passado através de função order_of_key().
+	- Como o vetor está em ordem crescente, a sua leitura é feita de trás para frente (em ordem decrescente), pois, assim, a única condição que precisa ser checada para saber se um dado intervalo contém seus anteriores é se FimA >= FimAnteriores; isso porque, garantidamente, InicioA <= InicioAnteriores. 
+	- Dito isso, como a função order_of_key() retorna a quantidade de elementos dentro do set que são estritamente menores que o elemento atual, faz-se a chamada order_of_key(fim + 1); pois, dessa forma, sabe-se que o retorno será a quantidade de elementos menores ou iguais a fim. 
+	- Depois disso, basta atualizar o índice original do vetor contem com o retorno da função anterior e inserir o fim do intervalo atual no ordered_multiset finsOrdenados.
+- A contagem de intervalos que estão contidos em outros é similar à anterior: Cria-se um vetor contidos e limpa-se o ordered_multiset utilizado anteriormente. 
+	- Nessa contagem, a leitura do vetor será feita em sua ordem padrão (crescente). Como order_of_key() retorna a quantidade de elementos menores que o valor passado, ao subtrair o total de elementos lidos da quantidade de elementos menores que o fim (retorno da função), obtém-se a quantidade de elementos maiores ou iguais ao fim. 
+	- Depois dessa operação, o vetor que armazena a contagem recebe o valor da subtração anterior na posição original do intervalo. O fim do intervalo atual é, então, inserido no ordered_multiset.
 
 ## 1164 - ROOM ALLOCATION
 - 
