@@ -35,7 +35,7 @@ Resoluções dos exercícios introdutórios do CSES.
 | 1642 | Sum of Four Values | [Código](./1642.cpp) |
 | 1645 | Nearest Smaller Values | [Código](./1645.cpp) |
 | 1660 | Subarray Sums I | [Código](./1660.cpp) |
-| 1660 | Subarray Sums II | [Código](./1661.cpp) |
+| 1661 | Subarray Sums II | [Código](./1661.cpp) |
 ---
 
 ## 1621 - DISTINCT NUMBERS
@@ -227,28 +227,75 @@ Resoluções dos exercícios introdutórios do CSES.
 	- Depois dessa operação, o vetor que armazena a contagem recebe o valor da subtração anterior na posição original do intervalo. O fim do intervalo atual é, então, inserido no ordered_multiset.
 
 ## 1164 - ROOM ALLOCATION
-- 
+- A estratégia utilizada para garantir que todos os hóspedes tenham um quarto único e que o número de quartos seja o menor possível é: 
+	- Armazenar os hóspedes em um vetor ordenado de forma crescente de uma struct que armazena o horário de chegada, de saída e o índice original.
+	- Armazenar os quartos em um multiset de par de inteiros em que o primeiro elemento é o horário de saída e o segundo elemento é o número do quarto. 
+	- Armazenar o histórico dos quartos dos hóspedes em um vetor de inteiro chamado alocações, de tamanho n.
+	- Armazenar o número do maior quarto como um inteiro simples. 
+- Com essas variáveis criadas, faz-se uma iteração do vetor de hospedes (após a sua ordenação).
+	- Dentro do loop, é coletado o primeiro par do multiset quartos, pois esse possui o menor dia de saída. Esse par, então, servirá de base para saber se o hóspede atual será encaixado em um novo quarto ou em um já usado anteriormente. 
+	- Se o dia de saída do quarto do primeiro par for menor que o dia de chegada do hóspede atual,  então esse novo hóspede se instalará nesse quarto. 
+	- Caso contrário, a variável que armazena o número do maior quarto será incrementada em um e o hóspede atual se instalará nesse novo quarto aberto. 
+	- Em ambos os casos, o vetor alocações insere o número do quarto do índice original do hóspede. 
 
 ## 1620 - FACTORY MACHINES
-- 
+- Após armazenar todos os tempos das máquinas em um vetor, faz-se uso da busca binária para encontrar o tempo mínimo.
+	- Primeiro, três variáveis auxiliares são criadas: tempoMin inicializada com 1, servindo como o início da busca, tempoMax inicializada com 1e18, servindo como fim da busca, e candidato inicializada com 1e18, que armazenará a resposta correta. 
+	- Dentro do loop responsável pela busca, outras duas variáveis são criadas: tempo, que funciona como o "meio" da busca binária, e produtos, que armazena a quantidade de produtos que são feitos no tempo determinado. 
+	- Um loop percorrendo os tempos das máquinas é percorrido a fim de incrementar a variável produtos com os tempos necessários de cada máquina. 
+	- Por fim, é feita a verificação: se produtos for menor que a quantidade t fornecida pela entrada, então a busca binária reiniciará a busca a partir da metade direita do intervalo; já se a produção for maior ou igual a t, a busca binária reiniciará a partir da metade esquerda do intervalo e a variável candidato receberá o menor valor (menor tempo) entre ela mesma e o tempo (meio). 
 
 ## 1630 - TASKS AND DEADLINES
-- 
+- A fim de encontrar a maior recompensa possível, precisa-se obter a menor soma (momentânea) das durações possível, já que o algoritmo consiste em fazer ∑(prazo - tempoFim) = ∑prazo - ∑tempoFim; Embora o termo ∑prazo seja sempre o mesmo, para maximizar o resultado, a estratégia é minimizar o termo ∑tempoFim.
+- Para isso, basta ordenar a estrutura de dados que armazena as tarefas de forma que as durações fiquem em ordem crescente. Dessa forma, o somatório resultará no maior valor possível. 
 
 ## 1631 - READING BOOKS
-- 
+- Para encontrar o menor tempo possível, basta notar que: 
+	- Toda vez que a duração de um livro sozinho é maior do que a soma da duração de todos os outros livros, o menor tempo possível será o dobro da duração desse livro. Isso porque o tempo desse maior livro se torna um "gargalo", então é ele quem vai ditar o tempo final; o Kotiivalo e a Justina só podem iniciar um livro se o outro já tiver terminado e, como o tempo do maior livro é maior do que a soma de todos os outros, isso quer dizer que enquanto um deles está lendo o maior, os outros podem ler todos os outros livros e ainda sobrará tempo. Esse tempo restante é o tempo que um dos leitores fica ocioso, esperando o outro finalizar o maior livro. 
+	- Se a duração do maior livro não for maior que a soma de todos os outros livros, então o tempo mínimo necessário será a soma de todos os livros; como não há um "gargalo" causado por um único livro, as leituras podem ser feitas livremente, sem que ninguém fique ocioso.
 
 ## 1641 - SUM OF THREE VALUES
-- 
+- Para encontrar a soma de três valores, armazena-se os números em um vetor ordenado de pares de inteiro, em que {chave, valor} = {número, posição}, e a técnica utilizada é a dos dois ponteiros.
+- O exercício pede três números tal que: a + b + c = alvo, que é, essencialmente, a + b = alvo - c.
+- Tendo isso em mente, um loop percorre todo o vetor e fixa um novoAlvo = alvo - c. Dessa forma, o problema de encontrar três valores se transforma em um problema de encontrar dois. 
+- Dois ponteiros são, então, criados com início (esq) na próxima posição do número atual e fim (dir)  no último elemento do vetor. 
+- Após isso, um loop while é criado para varrer os números entre esses dois ponteiros:
+	- Um inteiro auxiliar dentro do loop armazena a soma dos números apontados pelos ponteiros; 
+	- Se essa soma for maior do que o novo alvo, o ponteiro da direita volta uma posição; Se a soma for menor que o novo alvo, o ponteiro da esquerda avança uma posição; Essas operações podem ser feitas, pois o vetor foi ordenado logo após o início, o que garante que, quanto mais à direita do ponteiro da esquerda (esq), maior o número, bem como, quanto mais à esquerda do ponteiro da direita (dir), menor o número.
+	- Se nenhuma das condições anteriores foram atendidas, então quer dizer que a soma é igual ao novo alvo; nesse caso, os três valores foram encontrados; O loop, então, dá um break e imprime as posições. 	 
 
 ## 1642 - SUM OF FOUR VALUES
-- 
+- O algoritmo desse exercício é bastante similar ao do exercício anterior (1641 - Sum Of Three Values).
+- A diferença é que, ao invés de dois loops, esse possui três. 
 
 ## 1645 - NEAREST SMALLER VALUES
-- 
+- O algoritmo funciona da seguinte forma: 
+	- Toda vez que um número menor do que os anteriores for lido, os anteriores (maiores) serão deletados; isso porque, se o número na posição atual é menor que todos os outros que vieram antes dele, então ele será o primero cobiçado pelos próximos que forem maior que ele;
+- Para isso funcionar, os números são armazenados em uma stack (pilha) de pares de inteiros {numero, posicao}.
+- Um loop para ler os valores então se inicia.
+	- Dentro dele, outro loop também é iniciado com a condição de se repetir enquanto a pilha não estiver vazia.	
+		- Dentro desse segundo loop, um bloco condicional é executado: os números no topo da pilha serão excluídos enquanto forem maiores ou iguais ao número atual; quando essa condição não ocorre, é feita a impressão do número no topo da fila (pois esse é menor do que o atual) e o loop se encerra.
+	- Depois, se a pilha estiver vazia, será impresso "0"; Isso porque, ou essa é a primeira iteração, ou todos os valores dentro da pilha eram menores do que o valor atual; 
+	- Por fim, o número atual é inserido dentro da pilha.
 
 ## 1660 - SUBARRAY SUMS I
-- 
+- Utiliza-se a técnica da janela deslizante: 
+	- Cada número lido tem seu valor somado ao total do intervalo da janela deslizante. Se essa soma for maior que o valor alvo, a janela avança seu ponto inicial; Se a soma for igual ao valor alvo, então uma subarray foi encontrada; Se a soma for menor ao valor alvo, então a janela avança seu ponto final.
+- Tal implementação faz uso de duas variáveis que servem de ponteiros para o intervalo (janela) atual, uma variável para armazenar a soma desse intervalo, outra para contar a quantidade de subarrays e um vetor para armazenar os números. 
+- Um loop se inicia para fazer a leitura de todos os números.
+	- O número atual é inserido no vetor e a soma do intervalo adiciona o valor do número atual. 
+	- Outro loop tem início:
+		- Enquanto a soma for maior que o alvo e o ponteiro de início for maior que o de fim, a janela diminuirá; A soma decrementa o valor que reside na posição do ponteiro de início e depois esse ponteiro é avançado.
+	- Depois, se a soma for igual ao alvo, a quantidade de subarrays incrementa em um; se não, o ponteiro do fim avança.
 
 ## 1661 - SUBARRAY SUMS II
-- 
+- Para encontrar a quantidade de subarrays que possuem, como soma, o alvo, faz-se uso de um map para utilizar a técnica prefix sum. Essa técnica consiste em armazenar, em cada posição do vetor (ou map) o valor da soma dos números digitados até aquela posição. 
+- Dessa forma, ao buscar a soma da subarray nums[i:j], basta fazer prefix_sum[j+1] - prefix_sum[i]. Sendo assim, o que se busca é a soma de um determinado prefixo, ou seja: alvo = prefix_sum[j+1] - prefix_sum[i] => prefix_sum[i] = prefix_sum[j+1] - alvo. Tendo isso em vista, utilizando a função find do map, é possível verificar se o valor (prefix_sum[j+1] - alvo) existe. 
+- Para isso, foi-se criado o map para armazenar a soma do prefixo, sendo que {key, value} = {número, repetições{ e prefix_sum[0] = 1; O valor zero foi inserido para o caso em que uma subarray, contando da primeira posição, é formada. Duas outras variáveis são criadas, uma para armazenar a soma dos prefixos e outra para armazenar a quantidade de subarrays que resultam no alvo. 
+- Um loop se inicia e, a cada iteração:
+	- O número atual é lido;	
+	- A soma é incrementada com o número atual;
+	- Verifica-se se existe um número no map tal que o resultado seja a soma até o número atual subtraída pelo alvo; 
+	- Se existir, então uma (ou mais) nova subarray é encontrada e a variável que armazena essa quantidade adiciona a quantidade de vezes que tal valor foi encontrado. 
+	- Por fim, a quantidade de vezes que a soma atual aparece no map é incrementada.
+	
