@@ -1,6 +1,6 @@
-# Introductory Problems
+# Sorting and Searching
 
-Resoluções dos exercícios introdutórios do CSES.
+Resoluções dos exercícios de ordenar e pesquisar do CSES.
 
 ## Tabela de Conteúdos
 
@@ -36,6 +36,12 @@ Resoluções dos exercícios introdutórios do CSES.
 | 1645 | Nearest Smaller Values | [Código](./1645.cpp) |
 | 1660 | Subarray Sums I | [Código](./1660.cpp) |
 | 1661 | Subarray Sums II | [Código](./1661.cpp) |
+| 1662 | Subarray Divisibility | [Código](./1662.cpp) |
+| 2428 | Distinct Values Subarrays II | [Código](./2428.cpp) |
+| 1085 | Array Division | [Código](./1085.cpp) |
+| 1632 | Movie Festival II | [Código](./1632.cpp) |
+| 1644 | Maximum Subarray Sum II | [Código](./1644.cpp) |
+
 ---
 
 ## 1621 - DISTINCT NUMBERS
@@ -298,4 +304,23 @@ Resoluções dos exercícios introdutórios do CSES.
 	- Verifica-se se existe um número no map tal que o resultado seja a soma até o número atual subtraída pelo alvo; 
 	- Se existir, então uma (ou mais) nova subarray é encontrada e a variável que armazena essa quantidade adiciona a quantidade de vezes que tal valor foi encontrado. 
 	- Por fim, a quantidade de vezes que a soma atual aparece no map é incrementada.
-	
+
+## 1662 - SUBARRAY DIVISIBILITY
+- A técnica utilizada consiste em utilizar dois vetores: um contem a soma do prefixo dos números (armazena, em cada posição, a soma acumulada até ele) e o outro armazena o módulo dos números do vetor dos prefixos por n. 
+	- O segundo vetor existe pois os módulos possuem a seguinte propriedade: se $a-b$ for um número múltiplo de n, então $a%n = b%n$. Isso é, se a subtração de dois números for um número múltiplo de n, então o módulo dos dois por n é igual; esses números são congruentes. 
+	- Ainda sobre o segundo vetor, para tratar os casos em que o módulo resulta em um número negativo, faz-se o seguinte: 
+		- No caso de $n=5$ e da existência de dois valores no vetor da soma de prefixo 3 e -2, $3 -(-2) = 5$, que é múltiplo de n (5). No entanto, $3 % 5 = 3$ e $-2 % 5 = -2$, como os módulos são diferentes, somente a operação anterior do vetor não será o suficiente. Para tratar isso, como o módulo de um dado número n sempre será menor que n, basta somar n ao resultado final, logo: $(3 % 5) + 5 = 8$ e $(-2 % 5) + 5 = 3$. O número negativo foi corrigido, no entanto, o número do módulo sempre precisa ser menor que n, então, basta aplicar o módulo novamente nesse resultado final: $((3 % 5) + 5) % 5 = 8 % 5 = 3$ e $((-2 % 5) % 5) = 3 % 5 = 3$. Dessa forma, os dois módulos resultam no mesmo número, o que garante que agora a conta funcionará. Portanto, a fórmula final é: $mod = ((prefixSum[i] % n) + n) % n$.
+- Então, após fazer a leitura dos números e armazenar as somas consecutivas no vetor prefixSum, cria-se uma variável para armazenar a quantidade de sub arrays e um vetor de inteiros para armazenar a quantidade de vezes que os módulos aparecem (como os módulos sempres serão números entre 0 e n-1, uma estrutura de dados simples com n-1 posições e inicializada com 0 é o suficiente). Ou seja, dentro desse vetor, os números serão armazenados na forma modNums[módulo] = (quantidade).
+- Dentro de um loop de 0 até n, cria-se uma variável auxiliar $resto = ((prefixSum[i] % n) + n) % n$. Depois, incrementa-se a variável da quantidade de sub arrays com a quantidade de módulos existentes no vetor até o momento. Então, essa quantidade de módulos existentes é incrementada em 1. 
+
+## 2428 - DISTINCT VALUES SUBARRAYS II
+- 
+
+## 1085 - ARRAY DIVISION
+- 
+
+## 1632 - MOVIE FESTIVAL II
+- 
+
+## 1644 - MAXIMUM SUBARRAY SUM II
+- 
