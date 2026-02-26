@@ -19,25 +19,25 @@ int main(){
     }
 
     unordered_map<int,int> intervalo; // {valor, quantidade}
-    int ptrInicio = 0;
+    int ptrEsq = 0;
     long long qtdSubArrays = 0;
 
-    for(int ptrFim = 0; ptrFim < n; ++ptrFim){
-        int valor = valores[ptrFim];
+    for(int ptrDir = 0; ptrDir < n; ++ptrDir){
+        int valor = valores[ptrDir];
         intervalo[valor]++;
 
         while((int)intervalo.size() > maxValDist){
-            int valorInicio = valores[ptrInicio];
+            int valorInicio = valores[ptrEsq];
             intervalo[valorInicio]--;
 
             if(intervalo[valorInicio] == 0){
                 intervalo.erase(valorInicio);
             }
 
-            ptrInicio++;
+            ptrEsq++;
         }
 
-        qtdSubArrays += ptrFim - ptrInicio + 1;
+        qtdSubArrays += ptrDir - ptrEsq + 1;
     }
 
     cout << qtdSubArrays << "\n";
