@@ -133,7 +133,7 @@ Resoluções dos exercícios de ordenar e pesquisar do CSES.
 ## 2217 - COLLECTING NUMBERS II
 - A resolução desse exercício tem como base o algoritmo do exercício anterior para calcular a quantidade de rounds da sequência de números inserida inicialmente. A diferença é que, ao invés de ter somente um vetor indicando se o número foi lido ou não, têm-se dois vetores: um que armazena as posições dos números e outro que armazena os valores. 
 - O ponto principal nesse é realizar o cálculo dos rounds após a troca da posição dos números da sequência. 
-- Para cada vez que posicao[valor] < posicao[valor-1], a quantidade de rounds aumenta em 1. O foco aqui é pegar retirar a quantidade de rounds que foram adicionadas por razão das posições dos valores em a e em b.
+- Para cada vez que `posicao[valor] < posicao[valor-1]`, a quantidade de rounds aumenta em 1. O foco aqui é pegar retirar a quantidade de rounds que foram adicionadas por razão das posições dos valores em a e em b.
 - Se a e b forem, por exemplo, 2 e 3, e a sequência inicial for 4 2 1 5 3, com rounds = 3, os valores que serão movidos de lugar são 2 e 1. 
 - Os números que são afetas por tais valores são aqueles em suas vizinhanças, então deve-se chegar todos os pares que possuem uma unidade de diferença entre eles: Para o número 2: (1,2) e (2,3); Para o número 1: (0,1) e (1,2); Como possui 2 pares diferentes e 1 deles está fora do intervalo dos números, sobra: (1,2) e (2,3).
 - Tendo os pares de valores, a sequência antes da troca, e a quantidade de rounds, basta subtrair do número de rounds toda vez que posicao[valor] < posicao[valor-1];
@@ -179,11 +179,11 @@ Resoluções dos exercícios de ordenar e pesquisar do CSES.
 ## 3421 - DISTINCT VALUES SUBSEQUENCES
 - Para resolver tal problema, utiliza-se o exemplo dado: 
 1 2 1 3; Agrupando a sequência para a frequência de cada número, obtêm-se: 1 1 2 3;
-	- A quantidade de vezes que o número 1 aparece é 2, então f1 = 2; Mas a quantidade de maneiras que ele pode ser selecionado em uma subsequência é: [1] (o primeiro), [1] (o último) e [] (nenhum dos dois). Ou seja, f1 + 1 = 2 + 1 = 3 é a quantidade de combinações que podem ser feitas com ele.
-	- A quantidade de vezes que o número 2 aparece é 1, então f2 = 1; a quantidade de maneiras que ele pode ser selecionado em uma subsequência é: [2] e []. Ou seja, f2 + 1 = 1 + 1 = 2 é a quantidade de combinações que podem ser feitas com ele. O exemplo do 2 é análogo ao 3, já que ele também só aparece uma vez. 
-- Para saber a quantidade total de combinações de subsequências, basta multiplicar: (f1 + 1) * (f2 + 1) * (f3 + 1) = 3 * 2 * 2 = 12. No entanto, ao multiplicar todas essas combinações, a combinação em que todos os elementos vazios são selecionados também entra [,,,]; como ela não faz parte das combinações, ela é retirada subtraindo 1: 12 - 1 = 11.
+	- A quantidade de vezes que o número 1 aparece é 2, então f1 = 2; Mas a quantidade de maneiras que ele pode ser selecionado em uma subsequência é: [1] (o primeiro), [1] (o último) e [] (nenhum dos dois). Ou seja, `f1 + 1 = 2 + 1 = 3` é a quantidade de combinações que podem ser feitas com ele.
+	- A quantidade de vezes que o número 2 aparece é 1, então f2 = 1; a quantidade de maneiras que ele pode ser selecionado em uma subsequência é: [2] e []. Ou seja, `f2 + 1 = 1 + 1 = 2` é a quantidade de combinações que podem ser feitas com ele. O exemplo do 2 é análogo ao 3, já que ele também só aparece uma vez. 
+- Para saber a quantidade total de combinações de subsequências, basta multiplicar: `(f1 + 1) * (f2 + 1) * (f3 + 1) = 3 * 2 * 2 = 12`. No entanto, ao multiplicar todas essas combinações, a combinação em que todos os elementos vazios são selecionados também entra [,,,]; como ela não faz parte das combinações, ela é retirada subtraindo 1: `12 - 1 = 11`.
 - Ou seja, para descobrir a quantidade total de subsequências (que não passa de uma combinação), basta multiplicar a frequência de todos os números (contando com não-seleção desses números) e depois subtrair 1 de tal resultado, retirando o conjunto vazio. 
-- Para não estourar o tamanho da variável que vai armazenar o total, é importante utilizar a propriedade do módulo de (a*b) % MOD = (a%MOD * b%MOD) % MOD.
+- Para não estourar o tamanho da variável que vai armazenar o total, é importante utilizar a propriedade do módulo de `(a*b) % MOD = (a%MOD * b%MOD) % MOD`.
 
 ## 2162 - JOSEPHUS PROBLEM I
 - Como o exercício segue um padrão cíclico de alternância na remoção das crianças, utiliza-se uma fila. 
@@ -206,10 +206,10 @@ Resoluções dos exercícios de ordenar e pesquisar do CSES.
 ## 2163 - JOSEPHUS PROBLEM II
 - Para resolver esse exercício, foi-se feita a inserção das PBDS para o uso de um ordered_set. Ele funciona normalmente como um set, mas pode ser acessado através de índice e a remoção de elementos ocorre em complexidade em O(log n), muito mais rápido do que um vector (O(n)). 
 - Utilizando do exemplo n = 4 e k = 2: 
-	- o ordered_set nums contem 1 2 3 4; respectivamente nas posições 0, 1, 2 e 3; com um ponteiro apontando para o primeiro índice, pos = 0; a remoção é feita pulando k vezes a partir da posição atual, por precaução, deve-se utilizar o módulo da quantidade atual de elementos dentro de nums, a fim de manter o ponteiro dentro dos limites; ou seja: pos = (pos + k) % nums.size() = (0 + 2) % 4 = 2, então o elemento na posição 2 será removido;
-	- nums contem 1 2 4; pos = 2; a remoção será feita em pos = (pos + k) % nums.size() = (2 + 2) % 3 = 1;
-	- nums contem 1 4; pos = 1; a remoção será feita em pos = (1 + 2) % 2 = 1;
-	- nums contem 1; pos = 1; a remoção será feita em pos = (1 + 2) % 1 = 0;
+	- o ordered_set nums contem 1 2 3 4; respectivamente nas posições 0, 1, 2 e 3; com um ponteiro apontando para o primeiro índice, pos = 0; a remoção é feita pulando k vezes a partir da posição atual, por precaução, deve-se utilizar o módulo da quantidade atual de elementos dentro de nums, a fim de manter o ponteiro dentro dos limites; ou seja: `pos = (pos + k) % nums.size() = (0 + 2) % 4 = 2`, então o elemento na posição 2 será removido;
+	- nums contem 1 2 4; pos = 2; a remoção será feita em `pos = (pos + k) % nums.size() = (2 + 2) % 3 = 1`;
+	- nums contem 1 4; pos = 1; a remoção será feita em `pos = (1 + 2) % 2 = 1`;
+	- nums contem 1; pos = 1; a remoção será feita em `pos = (1 + 2) % 1 = 0`;
 	- Como a impressão é feita em ordem de retirada, a saída será: 3 2 4 1;
 
 ## 2168 - NESTED RANGES CHECK
@@ -252,7 +252,7 @@ Resoluções dos exercícios de ordenar e pesquisar do CSES.
 	- Por fim, é feita a verificação: se produtos for menor que a quantidade t fornecida pela entrada, então a busca binária reiniciará a busca a partir da metade direita do intervalo; já se a produção for maior ou igual a t, a busca binária reiniciará a partir da metade esquerda do intervalo e a variável candidato receberá o menor valor (menor tempo) entre ela mesma e o tempo (meio). 
 
 ## 1630 - TASKS AND DEADLINES
-- A fim de encontrar a maior recompensa possível, precisa-se obter a menor soma (momentânea) das durações possível, já que o algoritmo consiste em fazer ∑(prazo - tempoFim) = ∑prazo - ∑tempoFim; Embora o termo ∑prazo seja sempre o mesmo, para maximizar o resultado, a estratégia é minimizar o termo ∑tempoFim.
+- A fim de encontrar a maior recompensa possível, precisa-se obter a menor soma (momentânea) das durações possível, já que o algoritmo consiste em fazer `∑(prazo - tempoFim) = ∑prazo - ∑tempoFim`; Embora o termo ∑prazo seja sempre o mesmo, para maximizar o resultado, a estratégia é minimizar o termo ∑tempoFim.
 - Para isso, basta ordenar a estrutura de dados que armazena as tarefas de forma que as durações fiquem em ordem crescente. Dessa forma, o somatório resultará no maior valor possível. 
 
 ## 1631 - READING BOOKS
@@ -262,7 +262,7 @@ Resoluções dos exercícios de ordenar e pesquisar do CSES.
 
 ## 1641 - SUM OF THREE VALUES
 - Para encontrar a soma de três valores, armazena-se os números em um vetor ordenado de pares de inteiro, em que {chave, valor} = {número, posição}, e a técnica utilizada é a dos dois ponteiros.
-- O exercício pede três números tal que: a + b + c = alvo, que é, essencialmente, a + b = alvo - c.
+- O exercício pede três números tal que: `a + b + c = alvo`, que é, essencialmente, `a + b = alvo - c`.
 - Tendo isso em mente, um loop percorre todo o vetor e fixa um novoAlvo = alvo - c. Dessa forma, o problema de encontrar três valores se transforma em um problema de encontrar dois. 
 - Dois ponteiros são, então, criados com início (esq) na próxima posição do número atual e fim (dir)  no último elemento do vetor. 
 - Após isso, um loop while é criado para varrer os números entre esses dois ponteiros:
@@ -296,7 +296,7 @@ Resoluções dos exercícios de ordenar e pesquisar do CSES.
 
 ## 1661 - SUBARRAY SUMS II
 - Para encontrar a quantidade de subarrays que possuem, como soma, o alvo, faz-se uso de um map para utilizar a técnica prefix sum. Essa técnica consiste em armazenar, em cada posição do vetor (ou map) o valor da soma dos números digitados até aquela posição. 
-- Dessa forma, ao buscar a soma da subarray nums[i:j], basta fazer prefix_sum[j+1] - prefix_sum[i]. Sendo assim, o que se busca é a soma de um determinado prefixo, ou seja: alvo = prefix_sum[j+1] - prefix_sum[i] => prefix_sum[i] = prefix_sum[j+1] - alvo. Tendo isso em vista, utilizando a função find do map, é possível verificar se o valor (prefix_sum[j+1] - alvo) existe. 
+- Dessa forma, ao buscar a soma da subarray nums[i:j], basta fazer `prefix_sum[j+1] - prefix_sum[i]`. Sendo assim, o que se busca é a soma de um determinado prefixo, ou seja: `alvo = prefix_sum[j+1] - prefix_sum[i] => prefix_sum[i] = prefix_sum[j+1] - alvo`. Tendo isso em vista, utilizando a função find do map, é possível verificar se o valor `(prefix_sum[j+1] - alvo)` existe. 
 - Para isso, foi-se criado o map para armazenar a soma do prefixo, sendo que {key, value} = {número, repetições{ e prefix_sum[0] = 1; O valor zero foi inserido para o caso em que uma subarray, contando da primeira posição, é formada. Duas outras variáveis são criadas, uma para armazenar a soma dos prefixos e outra para armazenar a quantidade de subarrays que resultam no alvo. 
 - Um loop se inicia e, a cada iteração:
 	- O número atual é lido;	
@@ -321,10 +321,21 @@ Resoluções dos exercícios de ordenar e pesquisar do CSES.
 - Então, é feita a inserção do número de subarrays na variável responsável através da fórmula: `qtdSubArrays = qtdSubArrays + (ptrDir - ptrEsq + 1)`. Essa operação incrementa à contagem atual a quantidade de subarrays existentes depois do último valor válido (apontado pelo ptrDir) inserido. 
 
 ## 1085 - ARRAY DIVISION
-- 
+- A solução consiste em, ao invés de construir as subarrays uma a uma, estabelecer limites superior e inferior para a busca da soma desejada; o limite superior é quando k = 1, ou seja, a soma de todos os números do array; o limite inferior é quando k = n, ou seja, a maior soma é o maior número do array.
+- Tendo tais limites, faz-se uso da busca binária para encontrar a soma correta da seguinte forma: 
+	- Assume-se que a resposta correta é o valor do meio entre os limites. Então, faz-se a leitura da array da esquerda para a direita, fazendo a contagem e dividindo-a em subarrays; A soma dessas subarrays indiviuduais nunca deve ultrapassar o valor deduzido (o valor do meio entre os limites). 
+	- Ao final da construção dessas subarrays, verifica-se se a quantidade de subarrays ultrapassou o k fornecido na entrada, se sim, o limite inferior passa a ser a soma deduzida + 1; se a quantidade de subarrays é menor ou igual a k, então o limite superior passa a ser igual à soma deduzida. 
+	- Esses passos se repetem até que os limites superior e inferior possuam o mesmo valor. 
+- Esse algoritmo garante que a soma individual das k subarrays seja o menor valor possível.
 
 ## 1632 - MOVIE FESTIVAL II
-- 
+- Essa solução armazena os horários dos filmes em um vetor ordenado crescentemente de acordo com os horários de fim. 
+- Então, cria-se um multiset de inteiros para representar os filmes que os membros estão assistindo; essa estrutura de dados armazena somente o horário do fim dos filmes. 
+- Faz-se então a iteração do vetor dos horários dos filmes.
+	- A fim de verificar se um dos membros pode ou não assistir ao filme atual, basta checar se existe um horário do multiset que é menor ou igual ao horário de início do filme atual. Ou seja: `horarioFim <= horarioInicio`. Para isso, utiliza-se a função upper_bound no multiset com o horário de início do filme atual. 
+	- Se o iterador da função upper bound não apontar para o início do multiset, então esse iterador é decrementado (para que ele aponte para um valor menor ou igual ao horário de início do filme atual) e então é excluído. Isso porque o membro que estava assistindo àquele filme passará a assistir o filme atual. 
+	- Agora, se o iterador apontar para o início do multiset e nem todos os membros estiverem dentro de uma sala de cinema, então incrementa a variável auxiliar que armazena a quantidade de membros em salas de cinemas; agora, se TODOS os membros estão dentro de uma sala de cinema, então pula para a próxima iteração, pois ninguém conseguirá assistir ao filme atual;
+	- Ao final do loop, o horário do fim do filme atual é inserido no multiset e a quantidade de filmes assistidos incrementa.  
 
 ## 1644 - MAXIMUM SUBARRAY SUM II
 - 
