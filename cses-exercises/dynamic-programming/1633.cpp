@@ -18,13 +18,10 @@ int main(){
     long long janela = dp[0];
 
     for(int i = 1; i <= n; ++i){
-        if(i <= 6){
-            dp[i] = janela;
-            janela += dp[i];
-            continue;
+        if(i > 6){
+            janela = (janela - dp[i-7] + MODULO) % MODULO;
         }
 
-        janela = (janela - dp[i-7] + MODULO) % MODULO;
         dp[i] = janela;
         janela = (janela + dp[i]) % MODULO;
     }
