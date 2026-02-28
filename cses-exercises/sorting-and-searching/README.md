@@ -338,4 +338,12 @@ Resoluções dos exercícios de ordenar e pesquisar do CSES.
 	- Ao final do loop, o horário do fim do filme atual é inserido no multiset e a quantidade de filmes assistidos incrementa.  
 
 ## 1644 - MAXIMUM SUBARRAY SUM II
-- 
+- Essa solução faz uso da técnica prefix sum e janela deslizante; um vetor armazena, em cada posição, a soma acumulada dos valores anteriores; a janela deslizante armazena, em um multiset, os valores do vetor de prefix sum que estão dentro do intervalo passado [a,b].
+- Depois do preenchimento do vetor prefixSum, é feita a lógica para decidir a soma máxima dentro do intervalo. 
+	- Como cada posição do vetor possui o somatório das posições anteriores, ao fazer uma conta qualquer `prefixSum[i] - prefixSum[j]`, obtem-se o resultado da soma do subarray da posição `i` até `j`.
+	- Tendo isso em mente, fixando a posição i, a fim de obter o maior resultado (logo, a maior soma de subarray) possível para a operação `prefixSum[i] - prefixSum[j]`, o valor em `prefixSum[j]` deve ser o MENOR possível. Por isso utilizamos o multiset para armazenar tais valores; basta selecionar a primeira posição da estrutura, já que ela ordena crescentemente os itens armazenados dentro dela.
+	- O multiset, então, armazena os itens que estarão temporariamente dentro da janela de seleção. Tal janela possui valores pré-determinados: deve possuir, no mínimo, `a` e, no máximo, `b` elementos.
+	- Toda vez que `i` se desloca, a posição dos índices mínimo e máximo também se deslocam, pois a janela se movimentou. 
+		- Quando tais índices se movimentam, SE o tamanho da janela for maior que o permitido (`b-a+1`) os elementos dentro do multiset precisam ser substituídos também. O valor do novo índice máximo precisa adicionado, bem como o valor do índice mínimo antigo precisa ser removido. 
+	- Depois, uma variável temporária é criada para armazenar a maior soma da janela atual; ela possui o resultado da subtração entre `prefixSum[i]` e o menor valor existente dentro do multiset (essencialmente `prefixSum[i] - prefixSum[j]`, sendo j a posição do menor valor dentro da janela). 
+	- Por fim, a variável responsável por armazenar a resposta final da soma máxima atualiza seu valor: O valor máximo entre ela mesma e a maior soma da janela atual.
