@@ -1,0 +1,49 @@
+# Graph Algorithms
+
+Resoluções dos exercícios de algoritmos de grafos do CSES.
+
+## Tabela de Conteúdos
+
+| ID | Nome do Problema | Solução |
+| :--- | :--- | :---: |
+| 1192 | Counting Rooms | [Código](./1192.cpp) |
+| 1193 | Labyrinth | [Código](./1193.cpp) |
+| 1666 | Building Roads | [Código](./1666.cpp) |
+
+---
+
+## 1192 - COUNTING ROOMS
+- Esse exercício utiliza a técnica DFS (Depth-First Search ou Busca em Profundidade) para "marcar" toda a área do cômodo, garantindo que ele não seja contado mais de uma vez. 
+- A função DFS funciona da seguinte forma:
+	- Ela recebe, como parâmetro, a linha e a coluna da estrutura atual. 
+	- Se essa estrutura já foi visitada OU se essa estrutura for uma parede (#), ela retorna. Caso contrário, essa estrutura é um chão E ainda não foi visitada, portanto, faz parte de um cômodo. 
+	- O chão atual é sinalizado como visitado e, então, a função tenta fazer 4 recursões diferentes: para a direita, para baixo, para esquerda e para cima.
+	- Isso faz com que toda a área do cômodo atual seja sinalizada como visitada, a fim de impedir que algum chão desse cômodo seja marcado como um cômodo diferente.
+- Na main, é feita uma leitura de toda a matriz que armazena o mapa do local. 
+	- Toda vez que a estrutura atual é um chão que ainda não foi visitado, a main incrementa a variável `comodos` e chama a função dfs com as coordenadas atuais. 
+
+## 1193 - LABYRINTH
+- Esse exercício utiliza a técnica BFS (Breadth-First Search ou Busca em Largura) para encontrar o caminho mais próximo do fim do labirinto. 
+- A função BFS funciona da seguinte forma:
+	- Ela recebe a linha e a coluna do início do labirinto `A` como parâmetro e marca esse local como visitado. 
+	- Depois, insere na fila essas coordenadas e inicia um loop while que se repete enquanto essa fila não estiver vazia. 
+		- Dentro do loop, as coordenadas do elemento na primeira posição da fila são salvas e retiradas da fila. 
+		- A partir de tais coordenadas, é feita a tentativa de andar para cima, para baixo, para a direita, e para a esquerda. Para cada uma dessas direções, se o caminho estiver livre (for um chão não visitado), as coordenadas dele serão marcadas como visitada, a letra da direção caminhada naquelas coordenadas é salva e essas coordenadas são inseridas na fila. 
+		- Se uma dessas direções encontrar o fim do labirinto `B`, uma outra função é chamada para reconstruir o caminho feito e a função bfs é retornada. 
+- A função para reconstruir o caminho funciona da seguinte forma: 
+	- Ela recebe a linha e a coluna do fim do labirinto como parâmetro. 
+	- Inicia um loop que se repete enquanto a linha e a coluna não forem o início do labirinto `A`. O caminho aqui é feito de trás para frente.
+		- Dentro do loop, os passos são armazenados em uma estrutura de pilha (último a entrar, primeiro a sair). 
+		- Como está sendo feita a leitura de trás para frente dos passos efetuados, do último até o primeiro, se o último passo dado foi para a direita (R), para fazer o caminho inverso, caminha-se para a esquerda, alterando as coordenadas (decrementando a coluna em 1). 
+		- Dessa forma, é executado um switch-case; quando o passo dado foi "R", decrementa-se a coluna em um; quando o passo dado foi "L", incrementa-se a coluna em um; quando o passo dado foi "D", decrementa-se a linha; quando o passo dado foi "U", incrementa-se a linha; tudo isso é feito para retornar os passos, voltando de onde feio (início do labirinto).
+- Na main, para a impressão final, se a pilha que armazena os passos finais estiver fazia, então não existe nenhum caminho possível; caso contrário, o caminho foi armazenado e é possível concluí-lo.
+	- Os passos são impressos e desempilhados um a um da maneira a qual eles foram empilhados, do último até o primeiro.
+
+## 1666 - BUILDING ROADS
+- A técnica utilizada nessa solução foi a de modelar o problema armazenando o grafo em uma lista de adjacências e o explorando com o auxílio de uma função DFS. 
+- A função DFS recebe uma cidade como parâmetro e a sinaliza como visitada. Depois, inicia um loop que percorre todas as cidades conectadas a ela através de uma estrada e as sinaliza como visitadas através da recursão. Isso garante que cada conjunto de cidades interligadas só seja contado uma vez. 
+- Na main, ao fazer a leitura das rodovias que interligam as cidades `a` e `b`, a cidade `a` é armazenada na lista da cidade `b`, bem como a cidade `b` é armazenada na lista da cidade `a`.
+- Depois, uma variável auxiliar `representantes` é criada para "nomear" qual cidade de cada conjunto será responsável por conter a estrada que será criada. 
+- O loop for é criado para fazer a leitura de todas as cidades; Toda cidade que ainda não foi visitada é inserida como representante e adicionada ao vetor, e aí a função dfs com ela é chamada para garantir que somente um representante exista para cada conjunto de cidades interligadas.
+- Por fim, a quantidade mínima de estradas a serem criadas será a quantidade de cidades representantes menos 1. Então, as cidades representantes são impressas uma a uma, como uma corrente. 
+
