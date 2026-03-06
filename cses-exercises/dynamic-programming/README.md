@@ -62,7 +62,10 @@ Resoluções dos exercícios de programação dinâmica do CSES.
 - O caso base é `dp[0] = 0`, pois não existe nenhum passo necessário para zerar o número 0.
 
 ## 1638 - GRID PATHS I
-- 
+- O objetivo é contar a quantidade de caminhos que podem ser feitos do primeiro quadrado até o último em uma grade evitando as armadilhas.
+- O vetor `dp[i][j]` armazena a quantidade de caminhos válidos para chegar até aquele quadrado. Toda vez que uma coordenada [i][j] for uma armadilha, aquele quadrado é zero, pois aquele quadrado não pode ser pisado. 
+- Para cada coordenada [i][j], de 1 até n, é feito `dp[i][j] += dp[i-1][j] + dp[i][j-1]`. Como os únicos passos possibilitados são para a direita ou para a esquerda, então, para chegar em uma coordenada `[i][j]`, com certeza veio da esquerda `[i][j-1]` ou de cima `[i-1][j]`.
+- O caso base é `dp[1][1] = 1`, se o primeiro quadrado não for uma armadilha, caso contrário, `dp[1][1] = 0` e não tem caminhos possíveis.
 
 ## 1746 - BOOK SHOP
 - 
