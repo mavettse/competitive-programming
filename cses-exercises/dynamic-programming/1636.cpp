@@ -33,7 +33,6 @@ int main(){
             }
 
             dp[i] = (dp[i] + dp[i - moeda]) % MODULO;
-
         }
     }
 
