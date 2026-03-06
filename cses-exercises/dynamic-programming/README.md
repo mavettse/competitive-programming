@@ -58,7 +58,7 @@ Resoluções dos exercícios de programação dinâmica do CSES.
 ## 1637 - REMOVING DIGITS
 - O objetivo é contar a menor quantidade de passos possíveis para zerar um número n, subtraindo, consecutivamente, o maior dígito dele mesmo.
 - O vetor `dp[i]` armazena a quantidade de passos possíveis para zerar o número i.
-- Para cada número i, de 1 até n, obtêm-se o maior dígito dele e atribui `dp[i] = dp[i - maiorDigito] + 1`. Isso porque, a quantidade de passos necessários para chegar até o número i é igual a quantidade de passos dados para chegar o seu anterior `i - maiorDigito` com a adição de um passo (aquele dado para chegar até o número `i - maiorDigito`.
+- Para cada número i, de 1 até n, obtêm-se o maior dígito dele e atribui `dp[i] = dp[i - maiorDigito] + 1`. Isso porque, a quantidade de passos necessários para chegar até o número i é igual a quantidade de passos dados para chegar o seu anterior `i - maiorDigito` com a adição de um passo (aquele dado para chegar até o número `i - maiorDigito`).
 - O caso base é `dp[0] = 0`, pois não existe nenhum passo necessário para zerar o número 0.
 
 ## 1638 - GRID PATHS I
@@ -68,7 +68,9 @@ Resoluções dos exercícios de programação dinâmica do CSES.
 - O caso base é `dp[1][1] = 1`, se o primeiro quadrado não for uma armadilha, caso contrário, `dp[1][1] = 0` e não tem caminhos possíveis.
 
 ## 1746 - BOOK SHOP
-- 
+- O objetivo é contar a quantidade máxima de páginas que posso obter com um orçamento x em uma loja com n livros, em que cada livro possui um valor e uma quantidade de páginas.
+- O vetor `dp[i][j]` armazena a quantidade de páginas acumuladas do livro 1 até o i com um orçamento máximo igual a j. 
+- Para cada `dp[i][j]`, dp seleciona o maior valor (a maior quantidade de páginas) entre a quantidade no livro anterior com o orçamento atual `dp[i-1][j]` e o livro anterior se o livro atual for comprado `dp[i-1][j-h[i]] + s[i]`; ou seja: `dp[i][j] = max(dp[i-1][j-h[i]] + s[i], dp[i-1][j]) = max(comprar, não comprar)`.
 
 ## 2413 - ARRAY DESCRIPTION
 - 
