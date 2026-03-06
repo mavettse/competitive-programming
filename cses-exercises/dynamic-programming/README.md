@@ -59,7 +59,7 @@ Resoluções dos exercícios de programação dinâmica do CSES.
 - O objetivo é contar a menor quantidade de passos possíveis para zerar um número n, subtraindo, consecutivamente, o maior dígito dele mesmo.
 - O vetor `dp[i]` armazena a quantidade de passos possíveis para zerar o número i.
 - Para cada número i, de 1 até n, obtêm-se o maior dígito dele e atribui `dp[i] = dp[i - maiorDigito] + 1`. Isso porque, a quantidade de passos necessários para chegar até o número i é igual a quantidade de passos dados para chegar o seu anterior `i - maiorDigito` com a adição de um passo (aquele dado para chegar até o número `i - maiorDigito`.
-- O caso base é `dp[0] = 0`, pois não existe nenhum passo necessário para zerar o número 0. 
+- O caso base é `dp[0] = 0`, pois não existe nenhum passo necessário para zerar o número 0.
 
 ## 1638 - GRID PATHS I
 - 
