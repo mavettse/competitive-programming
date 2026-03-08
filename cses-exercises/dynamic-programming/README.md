@@ -12,12 +12,12 @@ Resoluções dos exercícios de programação dinâmica do CSES.
 | 1636 | Coin Combinations II | [Código](./1636.cpp) |
 | 1637 | Removing Digits | [Código](./1637.cpp) |
 | 1638 | Grid Paths I | [Código](./1638.cpp) |
-| 1746 | Book Shop | [Código](./1746.cpp) |
-| 2413 | Array Description | [Código](./2413.cpp) |
-| 1639 | Counting Towers | [Código](./1639.cpp) |
-| 3403 | Edit Distance | [Código](./3403.cpp) |
-| 1744 | Longest Common Subsequence | [Código](./1744.cpp) |
-| 3359 | Rectangle Cutting | [Código](./3359.cpp) |
+| 1158 | Book Shop | [Código](./1158.cpp) |
+| 1746 | Array Description | [Código](./1746.cpp) |
+| 2413 | Counting Towers | [Código](./2413.cpp) |
+| 1639 | Edit Distance | [Código](./1639.cpp) |
+| 3403 | Longest Common Subsequence | [Código](./3403.cpp) |
+| 1744 | Rectangle Cutting | [Código](./1744.cpp) |
 
 ---
 
@@ -63,26 +63,41 @@ Resoluções dos exercícios de programação dinâmica do CSES.
 
 ## 1638 - GRID PATHS I
 - O objetivo é contar a quantidade de caminhos que podem ser feitos do primeiro quadrado até o último em uma grade evitando as armadilhas.
-- O vetor `dp[i][j]` armazena a quantidade de caminhos válidos para chegar até aquele quadrado. Toda vez que uma coordenada [i][j] for uma armadilha, aquele quadrado é zero, pois aquele quadrado não pode ser pisado. 
+- A matriz `dp[i][j]` armazena a quantidade de caminhos válidos para chegar até aquele quadrado. Toda vez que uma coordenada [i][j] for uma armadilha, aquele quadrado é zero, pois aquele quadrado não pode ser pisado. 
 - Para cada coordenada [i][j], de 1 até n, é feito `dp[i][j] += dp[i-1][j] + dp[i][j-1]`. Como os únicos passos possibilitados são para a direita ou para a esquerda, então, para chegar em uma coordenada `[i][j]`, com certeza veio da esquerda `[i][j-1]` ou de cima `[i-1][j]`.
 - O caso base é `dp[1][1] = 1`, se o primeiro quadrado não for uma armadilha, caso contrário, `dp[1][1] = 0` e não tem caminhos possíveis.
 
-## 1746 - BOOK SHOP
+## 1158 - BOOK SHOP
 - O objetivo é contar a quantidade máxima de páginas que posso obter com um orçamento x em uma loja com n livros, em que cada livro possui um valor e uma quantidade de páginas.
-- O vetor `dp[i][j]` armazena a quantidade de páginas acumuladas do livro 1 até o i com um orçamento máximo igual a j. 
+- A matriz `dp[i][j]` armazena a quantidade de páginas acumuladas do livro 1 até o i com um orçamento máximo igual a j. 
 - Para cada `dp[i][j]`, dp seleciona o maior valor (a maior quantidade de páginas) entre a quantidade no livro anterior com o orçamento atual `dp[i-1][j]` e o livro anterior se o livro atual for comprado `dp[i-1][j-h[i]] + s[i]`; ou seja: `dp[i][j] = max(dp[i-1][j-h[i]] + s[i], dp[i-1][j]) = max(comprar, não comprar)`.
 
-## 2413 - ARRAY DESCRIPTION
-- 
+## 1746 - ARRAY DESCRIPTION
+- O objetivo é contar a quantidade de arrays de tamanho n que podem ser criadas (com valores entre 1 e m) em que a diferença absoluta de dois valores adjacentes seja, no máximo, 1. Entradas com 0 indicam posições onde o número é desconhecido e pode ser escolhido.
+- A matriz `dp[i][j]` armazena a quantidade de arrays válidos que podem ser criadas de tamanho `i`, de modo que o i-ésimo elemento termine sendo exatamente igual ao valor `j`.
+- Para cada `dp[i][j]`, o número de maneiras é a soma das possibilidades do elemento anterior ter sido `j-1`, `j`, ou `j+1`, garantindo que a diferença absoluta não exceda 1; ou seja, `dp[i][j] = (dp[i-1][j-1] + dp[i-1][j] + dp[i-1][j+1])`. Se o número na posição atual `i` já vier fixado (diferente de 0), somente a mudança para aquele valor é calculada. 
 
-## 1639 - COUNTING TOWERS
-- 
+## 2413 - COUNTING TOWERS
+- O objetivo é contar a quantidade de maneiras possíveis de construir uma torre de largura 2 e altura n utilizando blocos de diferentes proporções.
+- A matriz dp[i][estado] armazena a quantidade de formas de preencher a torre até a altura i. O estado `JUNTOS` (0) significa que o bloco do i-ésimo andar é formado por um único bloco de largura 2. O estado `SEPARADOS` (1) significa que o bloco do i-ésimo andar é formado por dois blocos de largura 1 cada. 
+- Para cada andar, os cálculos ocorrem baseados em como pode-se estender os blocos do andar de baixo:
+	- Para `dp[i][JUNTOS]`: pode-se estender as paredes, mantendo-os `JUNTOS`; pode-se estender as paredes e fechar o andar de baixo, mantendo-os `JUNTOS`; e pode-se fechar o andar de baixo, estender as paredes laterais E a do meio, fazendo-os `SEPARADOS`; Ou seja: duas maneiras de fazê-los `JUNTOS` e uma maneira de fazê-los `SEPARADOS`, sendo: `dp[i][JUNTOS] = (dp[i-1][JUNTOS]*2 + dp[i-1][SEPARADOS])`.
+	- Para `dp[i][SEPARADOS]`: pode-se estender todas as paredes, mantendo-os `SEPARADOS`; pode-se estender todas as parede e fechar o andar de baixo, mantendo-os `SEPARADOS`; pode-se estender todas as paredes e fechar o andar de baixo de somente o lado direito (+1 `SEPARADOS`) ou esquerdo (+1 `SEPARADOS`); pode-se fechar o andar de baixo e subir somente as paredes laterais, fazendo-os `JUNTOS`. Ou seja: quatro maneiras de fazê-los `SEPARADOS` e uma maneira de fazê-los `JUNTOS`, sendo: `dp[i][SEPARADOS] = (dp[i-1][SEPARADOS]*4 + dp[i-1][JUNTOS])`.
 
-## 3403 - EDIT DISTANCE
-- 
+## 1639 - EDIT DISTANCE
+- O objetivo é encontrar a quantidade mínima de operações (inserção, remoção ou substituição de um caractere) necessárias para transformar uma string a, de tamanho n, em uma string b, de tamanho m.
+- A matriz `dp[i][j]` armazena o custo mínimo para transformar o prefixo de tamanho `i` da string a no prefixo de tamanho `j` da string b. 
+- Para cada `dp[i][j]`, é feito a escolha entre o menor custo entre três opções: remover o caractere atual de a, inserir o caractere atual de b, ou modificar (que pode custar +1, se a[i] != b[j], ou 0, se a[i] == b[i]). Ou seja: `dp[i][j] = min(dp[i-1][j] + 1, dp[i][j-1] + 1, dp[i-1][j-1] + a[i] != b[j])`.
+- Os casos bases são `dp[i][0] = i` e `dp[0][j] = j`.
 
-## 1744 - LONGEST COMMUN SUBSEQUENCE
-- 
+## 3403 - LONGEST COMMON SUBSEQUENCE
+- O objetivo é encontrar o tamanho da maior subsequência comum entre dois arrays de tamanho n e m, depois imprimir os elementos que formam essa subsequência.
+- A matriz `dp[i][j]` armazena o comprimento máximo da subsequência comum considerando o prefixo de tamanho i do primeiro array e o prefixo de tamanho j do segundo array. 
+- Para cada `dp[i][j]`, se o número na posição i do primeiro array for igual ao número na posição j do segundo array, a subsequência cresce e o valor passa a ser `dp[i][j] = dp[i-1][j-1] + 1`. Se forem diferentes, dp pega o maior resultado ignorando o elemento atual de um dos dois arrays: `dp[i][j] = max(dp[i-1][j], dp[i][j-1])`. 
+- Depois de preencher a tabela, o código faz o caminho reverso a partir de `dp[n][m]` para recuperar os números. 
 
-## 3359 - RECTANGLE CUTTING
-- 
+## 1744 - RECTANGLE CUTTING
+- O objetivo é encontrar o número mínimo de cortes necessários para dividir um retângulo de dimensões `a x b` em quadrados. 
+- A matriz `dp[i][j]` armazena a quantidade mínima de cortes exigida para processar um retângulo de tamanho `i x j`. 
+- Para cada estado `dp[i][j]`, o algoritmo testa todas as posições possíveis para um corte horizontal (dividindo a altura i nas partes k e i-k) e para um corte vertical (dividindo o comprimento j nas partes k e j-k). O valor armazenado é o menor custo entre todas essas operações somado ao custo do corte atual, ou seja: `dp[i][j] = min(dp[k][j] + dp[i-k][j], dp[i][k] + dp[i][j-k]) + 1`.
+- Os casos base `dp[i][1] = i-1` e `dp[1][j] = j-1` representa o cenário onde uma das dimensões é 1, exigindo que o restante seja fatiado em pequenos quadrados de 1x1. Quando a área já é um quadrado `i == j`, a matriz já inicializa com o custo igual a 0. 
