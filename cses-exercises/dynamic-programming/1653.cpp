@@ -23,7 +23,7 @@ int main(){
     for(int mask = 0; mask < (1<<n); ++mask){
 
         for(int i = 0; i < n; ++i){
-            if(mask & (1<<i) == 0){ // se a pessoa i ainda nao entrou, seu bit é 0
+            if((mask & (1<<i)) == 0){ // se a pessoa i ainda nao entrou, seu bit é 0
                 int viagens = dp[mask].first;
                 int pesoAtual = dp[mask].second;
                 int p = pesos[i];
