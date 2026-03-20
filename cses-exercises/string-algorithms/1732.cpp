@@ -5,7 +5,7 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
+using namespace std; 
 
 const int A = 53, B = 1e9+7;
 
