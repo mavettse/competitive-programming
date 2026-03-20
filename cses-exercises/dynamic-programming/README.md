@@ -18,6 +18,15 @@ Resoluções dos exercícios de programação dinâmica do CSES.
 | 1639 | Edit Distance | [Código](./1639.cpp) |
 | 3403 | Longest Common Subsequence | [Código](./3403.cpp) |
 | 1744 | Rectangle Cutting | [Código](./1744.cpp) |
+| 3359 | Minimal Grid Path| [Código](./3359.cpp) |
+| 1745 | Money Sums | [Código](./1745.cpp) |
+| 1097 | Removal Game | [Código](./1097.cpp) |
+| 1093 | Two Sets II | [Código](./1093.cpp) |
+| 1145 | Increasing Subsequence | [Código](./1145.cpp) |
+| 1140 | Projects | [Código](./1140.cpp) |
+| 1653 | Elevator Rides | [Código](./1653.cpp) |
+| 2220 | Counting Numbers | [Código](./2220.cpp) |
+| 2181 | Counting Tilings | [Código](./2181.cpp) |
 
 ---
 
@@ -101,3 +110,30 @@ Resoluções dos exercícios de programação dinâmica do CSES.
 - A matriz `dp[i][j]` armazena a quantidade mínima de cortes exigida para processar um retângulo de tamanho `i x j`. 
 - Para cada estado `dp[i][j]`, o algoritmo testa todas as posições possíveis para um corte horizontal (dividindo a altura i nas partes k e i-k) e para um corte vertical (dividindo o comprimento j nas partes k e j-k). O valor armazenado é o menor custo entre todas essas operações somado ao custo do corte atual, ou seja: `dp[i][j] = min(dp[k][j] + dp[i-k][j], dp[i][k] + dp[i][j-k]) + 1`.
 - Os casos base `dp[i][1] = i-1` e `dp[1][j] = j-1` representa o cenário onde uma das dimensões é 1, exigindo que o restante seja fatiado em pequenos quadrados de 1x1. Quando a área já é um quadrado `i == j`, a matriz já inicializa com o custo igual a 0. 
+
+## 3359 - MINIMAL GRID PATH
+- 
+
+## 1745 - MONEY SUMS
+- 
+
+## 1097 - REMOVAL GAME
+- 
+
+## 1093 - TWO SETS II
+- 
+
+## 1145 - INCREASING SUBSEQUENCE
+- 
+
+## 1140 - PROJECTS
+- 
+
+## 1653 - ELEVATOR RIDES
+- 
+
+## 2220 - COUNTING NUMBERS
+- 
+
+## 2181 - COUNTING TILINGS
+- 

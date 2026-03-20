@@ -9,6 +9,13 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 | 1192 | Counting Rooms | [Código](./1192.cpp) |
 | 1193 | Labyrinth | [Código](./1193.cpp) |
 | 1666 | Building Roads | [Código](./1666.cpp) |
+| 1667 | Message Route | [Código](./1667.cpp) |
+| 1668 | Building Teams | [Código](./1668.cpp) |
+| 1669 | Round Trip | [Código](./1669.cpp) |
+| 1194 | Monsters | [Código](./1194.cpp) |
+| 1671 | Shortest Routes I | [Código](./1671.cpp) |
+| 1672 | Shortest Routes II | [Código](./1672.cpp) |
+| 1679 | Course Schedule | [Código](./1679.cpp) |
 
 ---
 
@@ -47,3 +54,23 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 - O loop for é criado para fazer a leitura de todas as cidades; Toda cidade que ainda não foi visitada é inserida como representante e adicionada ao vetor, e aí a função dfs com ela é chamada para garantir que somente um representante exista para cada conjunto de cidades interligadas.
 - Por fim, a quantidade mínima de estradas a serem criadas será a quantidade de cidades representantes menos 1. Então, as cidades representantes são impressas uma a uma, como uma corrente. 
 
+## 1667 - MESSAGE ROUTE
+- 
+
+## 1668 - BUILDING TEAMS
+- 
+
+## 1669 - ROUND TRIP
+- 
+
+## 1194 - MONSTERS
+- 
+
+## 1671 - SHORTEST ROUTES I
+- 
+
+## 1672 - SHORTEST ROUTES II
+- 
+
+## 1679 - COURSE SCHEDULE
+- 
