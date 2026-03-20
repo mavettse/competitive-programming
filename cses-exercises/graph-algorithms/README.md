@@ -16,6 +16,8 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 | 1671 | Shortest Routes I | [Código](./1671.cpp) |
 | 1672 | Shortest Routes II | [Código](./1672.cpp) |
 | 1679 | Course Schedule | [Código](./1679.cpp) |
+| 1678 | Round Trip II | [Código](./1678.cpp) |
+| 1680 | Longest Flight Route | [Código](./1680.cpp) |
 
 ---
 
@@ -73,4 +75,10 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 - 
 
 ## 1679 - COURSE SCHEDULE
+- 
+
+## 1678 - ROUND TRIP II
+- 
+
+## 1680 - LONGEST FLIGHT ROUTE
 - 
