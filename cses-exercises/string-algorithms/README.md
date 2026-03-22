@@ -8,6 +8,7 @@ Resoluções dos exercícios de algoritmos de string do CSES.
 | :--- | :--- | :---: |
 | 1753 | String Matching | [Código](./1753.cpp) |
 | 1732 | Finding Borders | [Código](./1732.cpp) |
+| 1731 | Word Combinations | [Código](./1731.cpp) |
 
 ---
 
@@ -15,4 +16,7 @@ Resoluções dos exercícios de algoritmos de string do CSES.
 -
 
 ## 1732 - FINDING BORDERS
+-
+
+## 1731 - WORD COMBINATIONS
 -
