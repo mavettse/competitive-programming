@@ -11,8 +11,9 @@ Resoluções dos exercícios de consultas de intervalo do CSES.
 | 1648 | Dynamic Range Sum Queries | [Código](./1648.cpp) |
 | 1649 | Dynamic Range Minimum Queries | [Código](./1649.cpp) |
 | 1650 | Range Xor Queries | [Código](./1650.cpp) |
-| 1650 | Range Xor Queries | [Código](./1650.cpp) |
 | 1652 | Forest Queries | [Código](./1652.cpp) |
+| 1749 | List Removals | [Código](./1749.cpp) |
+| 1144 | Salary Queries | [Código](./1144.cpp) |
 
 ---
 
@@ -32,4 +33,10 @@ Resoluções dos exercícios de consultas de intervalo do CSES.
 - 
 
 ## 1652 - FOREST QUERIES
+- 
+
+## 1749 - LIST REMOVALS
+- 
+
+## 1149 - SALARY QUERIES
 - 
