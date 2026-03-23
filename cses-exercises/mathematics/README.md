@@ -8,6 +8,7 @@ Resoluções dos exercícios matemáticos do CSES.
 | :--- | :--- | :---: |
 | 1095 | Exponentiation | [Código](./1095.cpp) |
 | 1712 | Exponentiation II | [Código](./1712.cpp) |
+| 2164 | Josephus Queries | [Código](./2164.cpp) |
 
 ---
 
@@ -15,4 +16,7 @@ Resoluções dos exercícios matemáticos do CSES.
 - 
 
 ## 1712 - EXPONENTIATION II
+- 
+
+## 2164 - JOSEPHUS QUERIES
 - 
