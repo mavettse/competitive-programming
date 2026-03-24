@@ -13,6 +13,8 @@ Resoluções dos exercícios de algoritmos de árvore do CSES.
 | 1687 | Company Queries I | [Código](./1687.cpp) |
 | 1688 | Company Queries II | [Código](./1688.cpp) |
 | 1135 | Distance Queries | [Código](./1135.cpp) |
+| 1137 | Subtree Queries | [Código](./1137.cpp) |
+| 1138 | Path Queries | [Código](./1138.cpp) |
 
 ---
 
@@ -35,4 +37,10 @@ Resoluções dos exercícios de algoritmos de árvore do CSES.
 - 
 
 ## 1135 - DISTANCE QUERIES
+- 
+
+## 1137 - SUBTREE QUERIES
+- 
+
+## 1138 - PATH QUERIES
 - 
