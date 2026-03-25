@@ -19,6 +19,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 | 1678 | Round Trip II | [Código](./1678.cpp) |
 | 1680 | Longest Flight Route | [Código](./1680.cpp) |
 | 1197 | Cycle Finding | [Código](./1197.cpp) |
+| 1196 | Flight Routes | [Código](./1196.cpp) |
 
 ---
 
@@ -85,4 +86,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 - 
 
 ## 1197 - CYCLE FINDING
+- 
+
+## 1196 - FLIGHT ROUTES
 - 
