@@ -15,6 +15,7 @@ Resoluções dos exercícios de algoritmos de árvore do CSES.
 | 1135 | Distance Queries | [Código](./1135.cpp) |
 | 1137 | Subtree Queries | [Código](./1137.cpp) |
 | 1138 | Path Queries | [Código](./1138.cpp) |
+| 2079 | Finding a Centroid | [Código](./2079.cpp) |
 
 ---
 
@@ -43,4 +44,7 @@ Resoluções dos exercícios de algoritmos de árvore do CSES.
 - 
 
 ## 1138 - PATH QUERIES
+- 
+
+## 2079 - FINDING A CENTROID
 - 
