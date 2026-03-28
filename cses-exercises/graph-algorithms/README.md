@@ -20,6 +20,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 | 1680 | Longest Flight Route | [Código](./1680.cpp) |
 | 1197 | Cycle Finding | [Código](./1197.cpp) |
 | 1196 | Flight Routes | [Código](./1196.cpp) |
+| 1681 | Game Routes | [Código](./1681.cpp) |
 
 ---
 
@@ -89,4 +90,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 - 
 
 ## 1196 - FLIGHT ROUTES
+- 
+
+## 1681 - GAME ROUTES
 - 
