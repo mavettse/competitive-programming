@@ -11,6 +11,7 @@ Resoluções dos exercícios matemáticos do CSES.
 | 2164 | Josephus Queries | [Código](./2164.cpp) |
 | 1713 | Counting Divisors | [Código](./1713.cpp) |
 | 1081 | Common Divisors | [Código](./1081.cpp) |
+| 1082 | Sum of Divisors | [Código](./1082.cpp) |
 
 ---
 
@@ -27,4 +28,7 @@ Resoluções dos exercícios matemáticos do CSES.
 - 
 
 ## 1081 - COMMON DIVISORS
+- 
+
+## 1082 - SUM OF DIVISORS
 - 
