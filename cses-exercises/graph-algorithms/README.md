@@ -22,6 +22,8 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 | 1196 | Flight Routes | [Código](./1196.cpp) |
 | 1681 | Game Routes | [Código](./1681.cpp) |
 | 1202 | Investigation | [Código](./1202.cpp) |
+| 1750 | Planets Queries I | [Código](./1750.cpp) |
+| 1751 | Planets Cycles | [Código](./1751.cpp) |
 
 ---
 
@@ -97,4 +99,10 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 - 
 
 ## 1202 - INVESTIGATION
+- 
+
+## 1750 - PLANETS QUERIES I
+- 
+
+## 1751 - PLANETS CYCLES
 - 
