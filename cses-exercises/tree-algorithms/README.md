@@ -16,6 +16,7 @@ Resoluções dos exercícios de algoritmos de árvore do CSES.
 | 1137 | Subtree Queries | [Código](./1137.cpp) |
 | 1138 | Path Queries | [Código](./1138.cpp) |
 | 2079 | Finding a Centroid | [Código](./2079.cpp) |
+| 1139 | Distinct Colors | [Código](./1139.cpp) |
 
 ---
 
@@ -47,4 +48,7 @@ Resoluções dos exercícios de algoritmos de árvore do CSES.
 - 
 
 ## 2079 - FINDING A CENTROID
+- 
+
+## 1139 - DISTINCT COLORS
 - 
