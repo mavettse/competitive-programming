@@ -14,6 +14,8 @@ Resoluções dos exercícios de consultas de intervalo do CSES.
 | 1652 | Forest Queries | [Código](./1652.cpp) |
 | 1749 | List Removals | [Código](./1749.cpp) |
 | 1144 | Salary Queries | [Código](./1144.cpp) |
+| 1734 | Distinct Values Queries | [Código](./1734.cpp) |
+| 1190 | Subarray Sum Queries | [Código](./1190.cpp) |
 
 ---
 
@@ -39,4 +41,10 @@ Resoluções dos exercícios de consultas de intervalo do CSES.
 - 
 
 ## 1149 - SALARY QUERIES
+- 
+
+## 1734 - DISTINCT VALUES QUERIES
+- 
+
+## 1190 - SUBARRAY SUM QUERIES
 - 
