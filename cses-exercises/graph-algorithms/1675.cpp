@@ -46,7 +46,7 @@ int main(){
     componentes = n;
     pais.resize(n+1);
     tamanhos.resize(n+1);
-    estradas.resize(m+1);
+    estradas.reserve(m);
 
     for(int i = 1; i <= n; ++i){
         criarConjunto(i);
@@ -61,14 +61,13 @@ int main(){
 
     for(auto [c,a,b] : estradas){
         juntarConjuntos(a,b,c);
-
-        if(componentes == 1){
-            cout << custoMax << '\n';
-            return 0;
-        }
     }
 
-    cout << "IMPOSSIBLE\n";
+    if(componentes == 1){
+        cout << custoMax << '\n';
+    } else {
+        cout << "IMPOSSIBLE\n";
+    }
     
     return 0;
 }
