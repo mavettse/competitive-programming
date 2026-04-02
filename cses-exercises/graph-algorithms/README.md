@@ -25,6 +25,9 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 | 1750 | Planets Queries I | [Código](./1750.cpp) |
 | 1751 | Planets Cycles | [Código](./1751.cpp) |
 | 1160 | Planets Queries II | [Código](./1160.cpp) |
+| 1676 | Road Construction | [Código](./1676.cpp) |
+| 1675 | Road Reparation | [Código](./1675.cpp) |
+| 1682 | Flight Routes Check | [Código](./1682.cpp) |
 
 ---
 
@@ -109,4 +112,13 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 - 
 
 ## 1160 - PLANETS QUERIES II
+- 
+
+## 1676 - ROAD CONSTRUCTION
+- 
+
+## 1675 - ROAD REPARATION
+- 
+
+## 1682 - FLIGHT ROUTES CHECK
 - 
