@@ -28,6 +28,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 | 1676 | Road Construction | [Código](./1676.cpp) |
 | 1675 | Road Reparation | [Código](./1675.cpp) |
 | 1682 | Flight Routes Check | [Código](./1682.cpp) |
+| 1683 | Planets and Kingdoms | [Código](./1683.cpp) |
 
 ---
 
@@ -121,4 +122,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 - 
 
 ## 1682 - FLIGHT ROUTES CHECK
+- 
+
+## 1683 - PLANETS AND KINGDOMS
 - 
