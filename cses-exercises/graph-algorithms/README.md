@@ -29,6 +29,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 | 1675 | Road Reparation | [Código](./1675.cpp) |
 | 1682 | Flight Routes Check | [Código](./1682.cpp) |
 | 1683 | Planets and Kingdoms | [Código](./1683.cpp) |
+| 1684 | Giant Pizza | [Código](./1684.cpp) |
 
 ---
 
@@ -125,4 +126,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 - 
 
 ## 1683 - PLANETS AND KINGDOMS
+- 
+
+## 1684 - GIANT PIZZA
 - 
