@@ -30,6 +30,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 | 1682 | Flight Routes Check | [Código](./1682.cpp) |
 | 1683 | Planets and Kingdoms | [Código](./1683.cpp) |
 | 1684 | Giant Pizza | [Código](./1684.cpp) |
+| 1691 | Mail Delivery | [Código](./1691.cpp) |
 
 ---
 
@@ -133,3 +134,6 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 - Tendo dois sabores `a` e `b`, como o enunciado do problema requer que pelo menos um dos requisitos de sabores sejam atendidos `(a v b)`, pode-se fazer a seguinte associação: `~a->b` OU `~b->a`; que pode ser lido como, se eu não insiro o sabor `a`, então o sabor `b` deve ser atendido e vice-vesra. Para isso, essas condições são armazenadas em duas listas de adjacência: uma na ordem normal, que armazena `~a` apontando para `b` e `~b` apontando para `a`; a segunda lista de adjacência armazena esses valores com as setas invertidas. (Para um dado sabor `a`, se a pessoa não gosta dele, então o seu valor na lista de adjacência vai ser armazenado na posição `a+m`, sendo `m` a quantidade de sabores; se a pessoa gosta do sabor, seu valor na lista é armazenado na posição `a`. A operação de negação `~` é feita adicionando `+m`, se o valor anterior era positivo, ou removendo `-m`, se o valor anterior era negativo).
 - Após feitas a leitura das listas de adjacências e as chamadas das DFS, é feita uma iteração de `1 até m`, a fim de verificar se um sabor `a` faz parte do mesmo conjunto do sabor `~a`, se fizer, então uma contradição foi encontrada e será impresso "IMPOSSIBLE" e o código encerra. Isso porque é impossível que `a` e `~a`, (um sabor esteja e não esteja na pizza) aconteçam ao mesmo tempo.
 - Se a condição anterior não foi bem-sucedida, então é feita a impressão dos sabores que estarão (`+`) e que não estarão (`-`) na pizza. Isso é feito a partir de uma iteração de `1` até `m` da seguinte forma: dado o sabor `i` atual, sabe-se que ele se encontra na pizza na posição `i` (`+`), do vetor que armazena os componentes completamente conexos, e que ele não se encontra na pizza na posição `i+1` (-). Para opções mais seguras de valores, faz-se a impressão do valor que foi analisado mais recentemente entre `i` e `i+m`, que é o que possui o maior índice do vetor dos componentes fortemente conexos. 
+
+## 1691 - MAIL DELIVERY
+- 
