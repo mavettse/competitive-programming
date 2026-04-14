@@ -31,6 +31,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 | 1683 | Planets and Kingdoms | [Código](./1683.cpp) |
 | 1684 | Giant Pizza | [Código](./1684.cpp) |
 | 1691 | Mail Delivery | [Código](./1691.cpp) |
+| 1692 | De Bruijn Sequence | [Código](./1692.cpp) |
 
 ---
 
@@ -136,4 +137,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 - Se a condição anterior não foi bem-sucedida, então é feita a impressão dos sabores que estarão (`+`) e que não estarão (`-`) na pizza. Isso é feito a partir de uma iteração de `1` até `m` da seguinte forma: dado o sabor `i` atual, sabe-se que ele se encontra na pizza na posição `i` (`+`), do vetor que armazena os componentes completamente conexos, e que ele não se encontra na pizza na posição `i+1` (-). Para opções mais seguras de valores, faz-se a impressão do valor que foi analisado mais recentemente entre `i` e `i+m`, que é o que possui o maior índice do vetor dos componentes fortemente conexos. 
 
 ## 1691 - MAIL DELIVERY
+- 
+
+## 1692 - DE BRUIJN SEQUENCE
 - 
