@@ -33,6 +33,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 | 1691 | Mail Delivery | [Código](./1691.cpp) |
 | 1692 | De Bruijn Sequence | [Código](./1692.cpp) |
 | 1693 | Teleporters Path | [Código](./1693.cpp) |
+| 1690 | Hamiltonian Flights | [Código](./1690.cpp) |
 
 ---
 
@@ -144,4 +145,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 - 
 
 ## 1693 - TELEPORTERS PATH
+- 
+
+## 1690 - HAMILTONIAN FLIGHTS
 - 
