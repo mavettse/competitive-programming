@@ -17,6 +17,7 @@ Resoluções dos exercícios de consultas de intervalo do CSES.
 | 1734 | Distinct Values Queries | [Código](./1734.cpp) |
 | 1190 | Subarray Sum Queries | [Código](./1190.cpp) |
 | 3226 | Subarray Sum Queries II | [Código](./3226.cpp) |
+| 1664 | Movie Festival Queries | [Código](./1664.cpp) |
 
 ---
 
@@ -51,4 +52,7 @@ Resoluções dos exercícios de consultas de intervalo do CSES.
 - 
 
 ## 3226 - SUBARRAY SUM QUERIES II
+- 
+
+## 1664 - MOVIE FESTIVAL QUERIES
 - 
