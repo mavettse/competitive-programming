@@ -19,6 +19,7 @@ Resoluções dos exercícios de consultas de intervalo do CSES.
 | 3226 | Subarray Sum Queries II | [Código](./3226.cpp) |
 | 1664 | Movie Festival Queries | [Código](./1664.cpp) |
 | 1739 | Forest Queries II | [Código](./1739.cpp) |
+| 1735 | Range Updates And Sums | [Código](./1735.cpp) |
 
 ---
 
@@ -59,4 +60,7 @@ Resoluções dos exercícios de consultas de intervalo do CSES.
 - 
 
 ## 1739 - FOREST QUERIES II
+- 
+
+## 1735 - RANGE UPDATES AND SUMS
 - 
