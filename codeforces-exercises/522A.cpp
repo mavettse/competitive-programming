@@ -42,10 +42,10 @@ int main() {
     arestas.assign(m, pair<int,int>());
 
     for(int i = 0; i < m; ++i){
-        string nome1, nome2, lixo; 
-        cin >> nome1 >> lixo >> nome2;
-        int aresta1 = getID(nome2), aresta2 = getID(nome1);
-        arestas[i] = {aresta1, aresta2};
+        string user1, user2, lixo; 
+        cin >> user1 >> lixo >> user2;
+        int origem = getID(user2), destino = getID(user1);
+        arestas[i] = {origem, destino};
     }
 
     dist.assign(n, 0); 
