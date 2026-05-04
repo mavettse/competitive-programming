@@ -34,6 +34,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 | 1692 | De Bruijn Sequence | [Código](./1692.cpp) |
 | 1693 | Teleporters Path | [Código](./1693.cpp) |
 | 1690 | Hamiltonian Flights | [Código](./1690.cpp) |
+| 1689 | Knight's Tour | [Código](./1689.cpp) |
 
 ---
 
@@ -148,4 +149,7 @@ Resoluções dos exercícios de algoritmos de grafos do CSES.
 - 
 
 ## 1690 - HAMILTONIAN FLIGHTS
+- 
+
+## 1689 - KNIGHT'S TOUR
 - 
