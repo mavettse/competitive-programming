@@ -1,0 +1,7 @@
+Debug/
+Release/
+*.user
+*.suo
+*.db
+.vs/
+.vscode/
