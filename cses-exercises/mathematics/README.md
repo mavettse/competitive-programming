@@ -12,6 +12,8 @@ Resoluções dos exercícios matemáticos do CSES.
 | 1713 | Counting Divisors | [Código](./1713.cpp) |
 | 1081 | Common Divisors | [Código](./1081.cpp) |
 | 1082 | Sum of Divisors | [Código](./1082.cpp) |
+| 3396 | Next Prime | [Código](./3396.cpp) |
+| 1715 | Creating Strings II | [Código](./1715.cpp) |
 
 ---
 
@@ -32,3 +34,9 @@ Resoluções dos exercícios matemáticos do CSES.
 
 ## 1082 - SUM OF DIVISORS
 - 
+
+## 3396 - NEXT PRIME
+-
+
+## 1715 - CREATING STRINGS II
+-
