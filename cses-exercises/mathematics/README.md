@@ -14,6 +14,7 @@ Resoluções dos exercícios matemáticos do CSES.
 | 1082 | Sum of Divisors | [Código](./1082.cpp) |
 | 3396 | Next Prime | [Código](./3396.cpp) |
 | 1715 | Creating Strings II | [Código](./1715.cpp) |
+| 1716 | Distributing Apples | [Código](./1716.cpp) |
 
 ---
 
@@ -39,4 +40,7 @@ Resoluções dos exercícios matemáticos do CSES.
 -
 
 ## 1715 - CREATING STRINGS II
+-
+
+## 1716 - DISTRIBUTING APPLES
 -
