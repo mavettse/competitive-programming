@@ -15,6 +15,7 @@ Resoluções dos exercícios matemáticos do CSES.
 | 3396 | Next Prime | [Código](./3396.cpp) |
 | 1715 | Creating Strings II | [Código](./1715.cpp) |
 | 1716 | Distributing Apples | [Código](./1716.cpp) |
+| 1079 | Binomial Coefficients | [Código](./1079.cpp) |
 
 ---
 
@@ -43,4 +44,7 @@ Resoluções dos exercícios matemáticos do CSES.
 -
 
 ## 1716 - DISTRIBUTING APPLES
+-
+
+## 1079 - BINOMIAL COEFFICIENTS
 -
