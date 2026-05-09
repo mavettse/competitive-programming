@@ -6,13 +6,13 @@ using namespace std;
 #define ll long long
 
 int const MOD = 1e9+7, N_MAX = 1e6;
-ll fat[2 * N_MAX + 1];
+ll fat[N_MAX + 2];
 
-// pré-calcula os fatoriais até 2*N_MAX
+// pré-calcula os fatoriais até N_MAX + 1
 void fatorial(){
     fat[0] = 1; 
 
-    for(int i = 1; i <= 2*N_MAX; ++i)
+    for(int i = 1; i <= N_MAX + 1; ++i)
         fat[i] = (fat[i-1] * i) % MOD;
 }
 
