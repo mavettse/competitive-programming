@@ -18,6 +18,7 @@ Resoluções dos exercícios matemáticos do CSES.
 | 1079 | Binomial Coefficients | [Código](./1079.cpp) |
 | 1717 | Christmas Party | [Código](./1717.cpp) |
 | 2064 | Bracket Sequences I | [Código](./2064.cpp) |
+| 3397 | Permutation Order | [Código](./3397.cpp) |
 
 ---
 
@@ -55,4 +56,7 @@ Resoluções dos exercícios matemáticos do CSES.
 -
 
 ## 2064 - BRACKET SEQUENCES I
+-
+
+## 3397 - PERMUTATION ORDER
 -
