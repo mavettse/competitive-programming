@@ -1,30 +1,26 @@
 /* GIOVANNI ESTEVAM DOS SANTOS */
 
-#include <iostream>
-#include <limits>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
+#define ll long long
 
+int main() {
     ios::sync_with_stdio(0);
-    cin.tie(0);
+    cin.tie(0); cout.tie(0);
 
-    int n;
-    cin >> n;
+    int n; cin >> n;
 
-    long long maxSoma = numeric_limits<int>::min();
-    long long somaAtual = maxSoma;
+    ll somaAtual = -1e10, somaGlobal = -1e10;
 
     for(int i = 0; i < n; ++i){
-        long long numAtual;
-        cin >> numAtual;
+        int numAtual; cin >> numAtual;
 
-        somaAtual = max(numAtual, somaAtual + numAtual);
-        maxSoma = max(maxSoma, somaAtual);
+        somaAtual = max((ll)numAtual, somaAtual + numAtual);
+        somaGlobal = max(somaGlobal, somaAtual);
     }
-    
-    cout << maxSoma << "\n";
-    
+
+    cout << somaGlobal << '\n';
+
     return 0;
 }
