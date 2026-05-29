@@ -1,54 +1,45 @@
 /* GIOVANNI ESTEVAM DOS SANTOS */
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
-int n, m; 
-vector<vector<char>> mapa;
-vector<vector<int>> visitado;
+const int dc[] = {-1, 1,  0, 0}; // esquerda, direita, cima, baixo
+const int dl[] = { 0, 0, -1, 1};
 
-void dfs(const int& linha, const int& coluna){
-    if(visitado[linha][coluna] || mapa[linha][coluna] == '#'){
-        return;
+int n, m;
+vector<string> mapa;
+
+void dfs(int l, int c){
+    mapa[l][c] = '#';
+
+    for(int i = 0; i < 4; ++i){
+        int nl = l + dl[i], nc = c + dc[i];
+
+        if(nl >= 0 && nc >= 0 && nl < n && nc < m && mapa[nl][nc] == '.')
+            dfs(nl, nc);
     }
-
-    visitado[linha][coluna] = 1;
-
-    dfs(linha, coluna+1); // tenta direita
-    dfs(linha+1, coluna); // tenta baixo
-    dfs(linha, coluna-1); // tenta esquerda
-    dfs(linha-1, coluna); // tenta cima
 }
 
-int main(){
-    ios::sync_with_stdio(0);
-    cin.tie(0);
+int main() {
+    ios::sync_with_stdio(0); cin.tie(0);
 
     cin >> n >> m;
 
-    mapa.assign(n+2, vector<char>(m+2, '#'));
-    visitado.assign(n+2, vector<int>(m+2, 0));
+    mapa.resize(n);
+
+    for(int i = 0; i < n; ++i)
+        cin >> mapa[i];
     
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++){
-            char estrutura; cin >> estrutura;
-            mapa[i][j] = estrutura;
-        }
-    }
+    int qtdQuartos = 0;
 
-    int comodos = 0;
-
-    for(int i = 1; i <= n; ++i){
-        for(int j = 1; j <= m; ++j){
-            if(mapa[i][j] == '.' && !visitado[i][j]){
-                comodos++;
-                dfs(i,j);
+    for(int i = 0; i < n; ++i)
+        for(int j = 0; j < m; ++j)
+            if(mapa[i][j] == '.'){
+                dfs(i, j);
+                qtdQuartos++;
             }
-        }
-    }
 
-    cout << comodos << "\n";
-    
+    cout << qtdQuartos << '\n';
+
     return 0;
 }
