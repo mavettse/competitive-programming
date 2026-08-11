@@ -17,7 +17,6 @@ int main() {
         int p; cin >> p;
         
         auto it = trafficPos.upper_bound(p);
-        if(it == trafficPos.end()) it--;
         auto next = it, prev = --it;
 
         auto del = lengths.find(*next - *prev);
