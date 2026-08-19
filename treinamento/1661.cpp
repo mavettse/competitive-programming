@@ -11,7 +11,7 @@ int main() {
 
     map<ll, int> prefixSum; // prefixSum[sum] = frequency
     prefixSum[0] = 1;
-    ll curSum = 0; int subarrays = 0;
+    ll curSum = 0, subarrays = 0;
 
     for(int i = 0; i < n; ++i){
         int num; cin >> num;
@@ -21,7 +21,7 @@ int main() {
         
         if(found != prefixSum.end())
             subarrays += found->second;
-            
+
         prefixSum[curSum]++;
     }
 
