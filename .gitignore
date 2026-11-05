@@ -5,3 +5,5 @@ Release/
 *.db
 .vs/
 .vscode/
+*.csv
+*.json
