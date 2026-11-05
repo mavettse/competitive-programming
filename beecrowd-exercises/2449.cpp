@@ -6,17 +6,12 @@ using namespace std;
 int main() {
     ios::sync_with_stdio(0); cin.tie(0);
 
-    int n, m; cin >> n >> m;
+    int n, m, mov = 0, prev = 0; cin >> n >> m;
 
-    vector<int> measures(n);
-
-    for(auto& measure : measures) cin >> measure;
-
-    int mov = 0, prev = 0;
-
-    for(int i = 0; i < measures.size()-1; ++i){
-        measures[i] += prev;
-        prev = m - measures[i];
+    for(int i = 0; i < n; ++i) {
+        int cur; cin >> cur;
+        cur += prev; 
+        prev = m - cur;
         mov += abs(prev);
     }
 
