@@ -13,10 +13,10 @@ public:
 
             if(nums[mid] == target) return mid;
 
-            if(nums[mid] > nums[r]) // meio está ordenado com a esquerda
+            if(nums[mid] > nums[r]) // a esquerda está ordenada
                 if(target >= nums[l] && target < nums[mid]) r = mid-1;
                 else l = mid+1;
-            else // meio está ordenado com a direita
+            else // a direita está ordenada
                 if(target > nums[mid] && target <= nums[r]) l = mid+1;
                 else r = mid-1;
         }
